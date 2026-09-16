@@ -1,0 +1,149 @@
+/* ------------------------------
+   CONFIGURACIÓN GENERAL
+------------------------------ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f8fc;
+    background-color: black;
+}
+
+
+/* ------------------------------
+   BANNER PRINCIPAL
+------------------------------ */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background-color: rgb(26, 18, 18);
+}
+
+
+/* ------------------------------
+   IMAGEN
+------------------------------ */
+
+.hero-imagen {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* ------------------------------
+   DESVANECIDO DE LA IMAGEN
+------------------------------ */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to right,
+       #f9fbff 0%,
+       #f9fbff33 30%,
+       #f9fbff66 30%,
+       #f9fbff99 45%
+
+       /* #9d2626 0%,
+        rgba(201, 62, 62, 0.98) 18%,
+        rgba(203, 48, 48, 0.85) 30%,
+        rgba(148, 8, 8, 0.45) 45%,
+        rgba(67, 2, 2, 0) 68%*/
+    );
+
+    pointer-events: none;
+}
+
+
+/* ------------------------------
+   TEXTO
+------------------------------ */
+
+.hero-contenido {
+    position: relative;
+    z-index: 2;
+
+    width: 45%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-left: 7%;
+}
+
+
+.hero-contenido h1 {
+    color: #123b80;
+
+    font-size: 42px;
+    line-height: 1.1;
+
+    margin-bottom: 18px;
+}
+
+
+.hero-contenido p {
+    color: #263b5c;
+
+    font-size: 16px;
+    line-height: 1.6;
+
+    max-width: 470px;
+
+    margin-bottom: 25px;
+}
+
+
+/* ------------------------------
+   BOTONES
+------------------------------ */
+
+.hero-botones {
+    display: flex;
+    gap: 12px;
+}
+
+
+.hero-botones a {
+    text-decoration: none;
+
+    padding: 12px 22px;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.btn-principal {
+    background-color: #174b9b;
+    color: white;
+}
+
+
+.btn-secundario {
+    background-color: white;
+    color: #174b9b;
+
+    border: 1px solid #174b9b;
+}

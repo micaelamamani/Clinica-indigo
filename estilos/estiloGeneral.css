@@ -1,0 +1,686 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --azul: #26375f;
+    --azul-iconos: #5c7da9;
+    --borde: #a9c1e2;
+
+    --verde: #8ee29a;
+    --verde-icono: #4dbb63;
+
+    --amarillo: #ffd47d;
+    --amarillo-icono: #ed9916;
+}
+
+/* =========================
+   CUERPO
+========================= */
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--azul);
+    background-image:
+        linear-gradient(
+            #b3c1d433,
+            #b3c1d433
+        ),
+        url("../img/fondoSalud.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/* Contenedor general */
+.contenedor {
+    width: 100%;
+    background-color: #4399a133;
+    min-height: 100vh;
+}
+/* =========================
+   HEADER Y FOOTER
+========================= */
+#header {
+    background-color: rgb(30, 90, 96);
+}
+
+#footer {
+    background-color: rgb(30, 90, 96);
+}
+/* =====================================================
+   MENÚ LATERAL
+   LO DEJO PORQUE DIJISTE QUE ES PRÁCTICA Y NO LO USÁS
+===================================================== */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #1e293b;
+    padding-top: 60px;
+    transition: 0.3s ease;
+    z-index: 999;
+}
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+
+    display: block;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.menu-btn {
+    font-size: 30px;
+
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 15px;
+}
+
+
+/* =========================
+   NAVBAR SUPERIOR
+========================= */
+
+.navbar {
+    width: calc(100% - 40px);
+    height: 105px;
+    /*margin: 18px auto;*/
+    margin: 12px auto;
+    padding: 12px 38px;
+    display: flex;
+    align-items: center;
+    background-color: #f9fbff99;
+    border-radius: 25px;
+    /*border: 1px solid #f9fbff99;*/
+    backdrop-filter: blur(7px);
+}
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    width: 225px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo-name img {
+    width: 150px;
+    height: auto;
+    display: block;
+}
+.heartbeat {
+    font-size: 34px;
+    margin-left: 2px;
+}
+/* =========================
+   MENÚ
+========================= */
+
+.menu {
+    position: relative;
+    height: 65px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+/* Enlaces */
+.menu-item {
+    position: relative;
+    z-index: 2;
+    height: 50px;
+    padding: 0 9px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--azul);
+    text-decoration: none;
+    font-size: 15px;
+    white-space: nowrap;
+    border-radius: 10px;
+    transition: color 0.2s ease;
+}
+
+.menu-item:hover {
+    color: #42699e;
+}
+
+
+/* Íconos de Lucide */
+
+.menu-item svg {
+    width: 21px;
+    height: 21px;
+    color: var(--azul-iconos);
+    stroke-width: 1.8;
+}
+
+
+/* =========================
+   LÍNEA DEL MENÚ
+========================= */
+
+.menu-indicator {
+    position: absolute;
+    left: 0;
+
+    bottom: 1px;
+    width: 0;
+    height: 3px;
+    background-color: #557bad;
+    border-radius: 20px;
+    transition:
+        left 0.35s ease,
+        width 0.35s ease;
+}
+
+
+/* =========================
+   ADMIN
+========================= */
+#user{
+    color: #26375f;
+    text-decoration: none;
+}
+.admin {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-left: 12px;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+}
+
+.admin-icon {
+    width: 33px;
+    height: 33px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background-color: #8da9d0;
+}
+
+.admin-icon svg {
+    width: 19px;
+    height: 19px;
+
+    color: white;
+
+    stroke-width: 1.8;
+}
+
+
+/* =========================
+   CONTENIDO PRINCIPAL
+========================= */
+
+main {
+    width: calc(100% - 40px);
+
+    margin: 0 auto 20px;
+}
+
+
+/* =========================
+   BIENVENIDA
+========================= */
+
+.welcome {
+    position: relative;
+    height: 280px;
+    /* padding: 39px 48px; */
+    padding: 39px 48px;
+    overflow: hidden;
+    border-radius: 21px;
+    background-image:
+        linear-gradient(
+            #b3c1d433,
+            #b3c1d433
+        ),
+        url("../img/fondoBienvenidaAdmin.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* =========================
+   TÍTULOS DE BIENVENIDA
+========================= */
+.welcome h1 {
+    position: relative;
+    font-size: 27px;
+    margin-bottom: 16px;
+    letter-spacing: 0.4px;
+}
+.welcome h2 {
+    position: relative;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+/* =========================
+   RESUMEN GENERAL
+========================= */
+.resumen{
+    height: 170px;
+    padding: 20px 30px 25px;
+    background-color: #dde1e6;
+    border-radius: 20px;
+    border: 2px solid #bfc8d4;
+}
+.summary {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+/* Tarjetas */
+.summary-card {
+    height: 90px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    background-color: rgba(255, 255, 255, 0.91);
+    border-radius: 18px;
+    box-shadow:
+        0 3px 10px rgba(50, 70, 90, 0.08);
+}
+/* =========================
+   ÍCONOS DE RESUMEN
+========================= */
+.summary-icon {
+    width: 67px;
+    height: 67px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+}
+
+.summary-icon svg {
+    width: 36px;
+    height: 36px;
+    stroke-width: 1.8;
+}
+/* Pacientes */
+.patients {
+    background-color: #ccd9e9;
+    color: #597aa5;
+}
+/* Turnos */
+.appointments {
+    background-color: #baf0c3;
+    color: var(--verde-icono);
+}
+/* Consultas */
+.consultations {
+    background-color: #ffe0a1;
+    color: var(--amarillo-icono);
+}
+
+
+/* =========================
+   NÚMEROS
+========================= */
+
+.number {
+    display: block;
+
+    font-size: 23px;
+
+    font-weight: 600;
+
+    margin-bottom: 2px;
+}
+
+
+.summary-card p {
+    font-size: 17px;
+
+    line-height: 1.3;
+}
+
+
+/* =========================
+   PARTE INFERIOR
+========================= */
+
+.bottom {
+    display: grid;
+
+    grid-template-columns:
+        1.25fr 0.95fr;
+
+    gap: 30px;
+
+    margin-top: 28px;
+}
+
+
+/* =========================
+   CAJAS
+========================= */
+
+.box {
+    height: 370px;
+    padding: 20px 30px 25px;
+    background-color: #dde1e6;
+    border-radius: 20px;
+    border: 2px solid #bfc8d4;
+}
+
+
+/* =========================
+   TÍTULOS DE CAJAS
+========================= */
+
+.box-title {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+}
+
+.box-title h2 {
+    font-size: 25px;
+}
+
+.box-title svg {
+    width: 25px;
+    height: 25px;
+
+    color: #5e80ae;
+
+    stroke-width: 1.8;
+}
+
+
+/* =========================
+   TABLA DE PRÓXIMOS TURNOS
+========================= */
+
+.table-container {
+    width: 100%;
+    overflow: hidden;
+    border: 3px solid var(--borde);
+    border-radius: 17px;
+    background-color: rgba(255, 255, 255, 0.48);
+}
+
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+}
+
+
+th {
+    height: 45px;
+
+    padding: 8px;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    text-align: center;
+}
+
+
+td {
+    height: 47px;
+
+    padding: 8px;
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(150, 175, 210, 0.35);
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   TABLA VACÍA
+========================= */
+
+td[colspan="5"] {
+    height: 180px;
+
+    color: #68748a;
+
+    font-size: 17px;
+
+    font-weight: 500;
+}
+
+
+/* =========================
+   RECORDATORIOS
+========================= */
+
+.reminders {
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.empty {
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: #68748a;
+}
+
+
+.empty-icon {
+    font-size: 35px;
+
+    opacity: 0.3;
+}
+
+
+.empty p {
+    margin-top: 7px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1250px) {
+
+    .navbar {
+        padding: 12px 20px;
+    }
+
+    .logo {
+        width: 185px;
+    }
+
+    .logo-name {
+        font-size: 32px;
+    }
+
+    .menu-item {
+        padding: 0 6px;
+
+        font-size: 13px;
+    }
+
+    .menu-item svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .summary {
+        gap: 25px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .navbar {
+        height: auto;
+
+        min-height: 105px;
+
+        flex-wrap: wrap;
+    }
+
+    .menu {
+        order: 3;
+
+        width: 100%;
+
+        flex-basis: 100%;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+    }
+
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom {
+        grid-template-columns: 1fr;
+    }
+}
+/*  boton registrar mdoctor */
+
+.admin-actions {
+    display: flex;
+    width: 100%;
+}
+.btn-admin {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 22px;
+    background-color: #64788f;
+    color: white;
+    border-radius: 18px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    box-shadow:
+        0 3px 10px rgba(50, 70, 90, 0.08);
+
+    transition: 0.2s ease;
+}
+.btn-admin svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-admin:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+/* ========================================
+   ÚLTIMAS CONSULTAS
+======================================== */
+
+.consultas-recientes {
+    min-height: 250px;
+}
+
+.consulta-reciente {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 13px 5px;
+
+    border-bottom: 1px solid #e8ecf1;
+
+    font-size: 14px;
+}
+
+.consulta-reciente:last-child {
+    border-bottom: none;
+}
+
+.nombre-consulta {
+    color: #334155;
+    font-weight: 600;
+}
+
+.fecha-consulta {
+    color: #7a8493;
+    font-size: 13px;
+}
+
+.cargando-consultas,
+.sin-consultas {
+    margin: 20px 5px;
+
+    color: #7a8493;
+
+    font-size: 14px;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
+    <title>Clínica Índigo</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../estilos/estiloGeneral.css">
+</head>
+
+<body>
+    <!-- MENÚ -->
+    <header class="navbar">
+        <a href="inicioAdmin.html" class="logo">
+            <div class="logo-name">
+                <img src="../img/logoIndigo.png" alt="">
+            </div>
+        </a>
+        <nav class="menu">
+            <span class="menu-indicator"></span>
+            <a href="inicioAdmin.html" class="menu-item active">
+                <i data-lucide="house"></i>
+                <span>Inicio</span>
+            </a>
+            <a href="pacientes.html" class="menu-item">
+                <i data-lucide="user-round"></i>
+                <span>Pacientes</span>
+            </a>
+            <a href="turnos.html" class="menu-item">
+                <i data-lucide="calendar-days"></i>
+                <span>Turnos médicos</span>
+            </a>
+            <a href="historias.html" class="menu-item">
+                <i data-lucide="clipboard-list"></i>
+                <span>Historias clínicas</span>
+            </a>
+            <a href="medicamentos.html" class="menu-item">
+                <i data-lucide="pill"></i>
+                <span>Medicamentos</span>
+            </a>
+            <a href="reportes.html" class="menu-item">
+                <i data-lucide="info"></i>
+                <span>Reportes</span>
+            </a>
+        </nav>
+        <div class="admin">
+            <div class="admin-icon">
+                <i data-lucide="user-round"></i>
+            </div>
+            <a id="user" href="../Cliente/inicioSesion.html">Admin</a>
+        </div>
+
+    </header>
+    <main>
+        <!-- BIENVENIDA -->
+        <section class="welcome">
+            <div class="pattern"></div>
+            <h1>¡Bienvenido, Administrador!</h1>
+            <div class="resumen">
+                <h2>Resumen general</h2>
+                <div class="summary">
+                    <!-- PACIENTES -->
+                    <div class="summary-card">
+                        <div class="summary-icon patients">
+                            <i data-lucide="user-round"></i>
+                        </div>
+                        <div>
+                            <span class="number" id="cantidadPacientes">0</span>
+                            <p>
+                                pacientes<br>
+                                registrados
+                            </p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon appointments">
+                            <i data-lucide="calendar-days"></i>
+                        </div>
+                        <div>
+                            <span class="number" id="cantidadTurnosHoy">0</span>
+                            <p>
+                                Turnos para<br>
+                                hoy
+                            </p>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon consultations">
+                            <i data-lucide="clipboard-list"></i>
+                        </div>
+                        <div>
+                            <span class="number" id="cantidadConsultasHoy">0</span>
+                            <p>
+                                Consultas<br>
+                                realizadas hoy
+                            </p>
+                        </div>
+                    </div>
+                    <!-- boton de registrar-->
+                    <div class="admin-actions">
+                        <a href="registrarDoctor.html" class="btn-admin">
+                            <i data-lucide="user-plus"></i>
+                            <span>Registrar doctor</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- PARTE INFERIOR -->
+        <section class="bottom">
+            <!-- PRÓXIMOS TURNOS -->
+            <div class="box">
+                <div class="box-title">
+                    <i data-lucide="calendar-days"></i>
+                    <h2>Próximos turnos</h2>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Paciente</th>
+                                <th>Médico</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaTurnosP">
+                            <tr>
+                                <td colspan="5">
+                                    Cargando turnos...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- ÚLTIMAS CONSULTAS -->
+            <div class="box consultas-recientes">
+                <div class="box-title">
+                    <i data-lucide="clipboard-list"></i>
+                    <h2>Últimas consultas</h2>
+                </div>
+
+                <div id="ultimasConsultas">
+                    <p class="cargando-consultas">
+                        Cargando consultas...
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../js/inicioAdmin.js"></script>
+    <script src="../indicadorMenu.js"></script>
+    <script src="../js/inicioTurnosAdmin.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

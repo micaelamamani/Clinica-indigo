@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
+    <title>Iniciar sesión | Clínica Índigo</title>
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../estilos/inicioPaciente.css">
+    <link rel="stylesheet" href="../estilos/inicioSesion.css">
+</head>
+<body>
+    <!-- ==== horarios ===== -->
+    <div class="top-info">
+        <span><i data-lucide="clock"></i>Lunes a viernes 08:00 - 18:00 </span>
+        <span class="separador">|</span>
+        <span>Sábados 08:00 - 13:00</span>
+        <span><i data-lucide="phone"></i>11 4567 8900</span>
+        <span><i data-lucide="mail"></i>info@clinicaindigo.com.ar</span>
+        <span><i data-lucide="map-pin"></i>Av. Mitre 1234, Buenos Aires</span>
+    </div>
+    <!-- ======login======= -->
+    <main class="login-main">
+        <section class="login-card">
+            <div class="login-overlay"></div>
+            <div class="login-content">
+                <h1>Inicia sesión</h1>
+                <form id="loginForm">
+                    <!-- USUARIO -->
+                    <div class="login-field">
+                        <label for="usuario">Ingresa tu usuario</label>
+                        <div class="input-container">
+                            <i data-lucide="user-round"></i>
+                            <input type="text" id="usuario" name="usuario" autocomplete="username">
+                        </div>
+                    </div>
+                    <!-- CONTRASEÑA -->
+                    <div class="login-field">
+                        <label for="password">
+                            Ingresa tu contraseña
+                        </label>
+                        <div class="input-container">
+                            <i data-lucide="lock"></i>
+                           <input type="password" id="contrasenia" name="contrasenia" autocomplete="current-password">
+                        </div>
+                    </div>
+                    <!-- BOTÓN -->
+                    <button type="submit" class="btn-login">Iniciar sesión</button>
+                </form>
+                <!-- REGISTRO -->
+                <div class="register">
+                    <p>¿No tenés una cuenta?</p>
+                    <a href="registrarsePaciente.html">Registrarme</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- JS -->
+    <script src="../js/inicioSesion.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

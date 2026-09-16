@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
+    <title>Turnos médicos | Clínica Índigo</title>
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../estilos/inicioPaciente.css">
+    <link rel="stylesheet" href="../estilos/paginasPaciente.css">
+</head>
+
+<body>
+    <!-- =====INFORMACIÓN SUPERIOR ===== -->
+    <div class="top-info">
+        <span>
+            <i data-lucide="clock"></i>
+            Lunes a viernes 08:00 - 18:00
+        </span>
+        <span class="separador">|</span>
+        <span>
+            Sábados 08:00 - 13:00
+        </span>
+        <span>
+            <i data-lucide="phone"></i>
+            11 4567 8900
+        </span>
+        <span>
+            <i data-lucide="mail"></i>
+            info@clinicaindigo.com.ar
+        </span>
+        <span>
+            <i data-lucide="map-pin"></i>
+            Av. Mitre 1234, Buenos Aires
+        </span>
+    </div>
+    <!-- ======== MENÚ ========= -->
+    <header class="navbar">
+        <a href="inicioPaciente.html" class="logo">
+            <img src="../img/logoIndigo.png" alt="Clínica Índigo">
+        </a>
+        <nav class="menu">
+            <span class="menu-indicator"></span>
+            <a href="inicioPaciente.html" class="menu-item">
+                <i data-lucide="house"></i>
+                <span>Inicio</span>
+            </a>
+            <a href="turnoPaciente.html" class="menu-item active">
+                <i data-lucide="calendar-days"></i>
+                <span>Turnos médicos</span>
+            </a>
+            <a href="historiaPaciente.html" class="menu-item">
+                <i data-lucide="clipboard-list"></i>
+                <span>Historia clínica</span>
+            </a>
+            <a href="medicamentosPaciente.html" class="menu-item">
+                <i data-lucide="pill"></i>
+                <span>Medicamentos</span>
+            </a>
+        </nav>
+        <div class="admin">
+            <div class="admin-icon">
+                <i data-lucide="user-round"></i>
+            </div>
+            <a id="user" href="inicioSesion.html">usuario</a>
+        </div>
+    </header>
+    <!-- == CONTENIDO === -->
+    <main class="pagina-paciente">
+        <!-- TÍTULO -->
+        <section class="page-title">
+            <div>
+                <h1>Turnos médicos</h1>
+                <p id="whitext">
+                    Consultá tus turnos o solicitá una nueva cita médica.
+                </p>
+            </div>
+            <div class="page-title-icon">
+                <i data-lucide="calendar-days"></i>
+            </div>
+        </section>
+        <!-- PRÓXIMO TURNO -->
+        <section class="proximo-turno">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="small-title">
+                        PRÓXIMA CITA
+                    </span>
+
+                    <h2>
+                        Tu próximo turno
+                    </h2>
+                </div>
+
+                <span id="estadoProximoTurno" class="estado confirmado">
+                    Confirmado
+                </span>
+
+            </div>
+
+
+            <div class="turno-destacado">
+
+                <!-- FECHA -->
+
+                <div class="turno-fecha">
+
+                    <div class="calendario-icon">
+                        <i data-lucide="calendar-days"></i>
+                    </div>
+
+                    <div>
+
+                        <strong id="fechaProximoTurno">
+                            Cargando...
+                        </strong>
+
+                        <span id="horaProximoTurno">
+                            --
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DOCTOR -->
+
+                <div class="turno-doctor">
+
+                    <div class="doctor-icon">
+                        <i data-lucide="stethoscope"></i>
+                    </div>
+                    <div>
+                        <strong id="doctorProximoTurno">
+                            Cargando...
+                        </strong>
+                    </div>
+                </div>
+                <!-- ESPECIALIDAD -->
+                <div class="turno-especialidad">
+                    <div class="especialidad-icon">
+                        <i data-lucide="activity"></i>
+                    </div>
+                    <div>
+                        <strong id="especialidadProximoTurno">
+                            Cargando...
+                        </strong>
+                        <span>
+                            Especialidad
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SOLICITAR TURNO ->
+        <section class="solicitar-box">
+            <div class="solicitar-icon">
+                <i data-lucide="calendar-plus"></i>
+            </div>
+            <div class="solicitar-texto">
+                <h2>¿Necesitás un nuevo turno?</h2>
+                <p>
+                    Consultá las especialidades y horarios disponibles
+                    para elegir el turno que mejor se adapte a vos.
+                </p>
+            </div>
+            <a href="turnoPaciente.html" class="btn-principal">
+                Solicitar turno
+                <i data-lucide="arrow-right"></i>
+            </a>
+        </section><br><br-->
+        <!-- SOLICITAR TURNO -->
+        <section class="solicitar-box">
+            <div class="solicitar-icon">
+                <i data-lucide="calendar-plus"></i>
+            </div>
+            <div class="solicitar-texto">
+                <h2>Solicitar un nuevo turno</h2>
+                <p>Elegí el médico, la fecha y el horario que prefieras.</p>
+                <form id="turnoForm">
+                    <!-- MÉDICO -->
+                    <div class="campo-turno">
+                        <label for="doctor">
+                            Médico
+                        </label>
+                        <select id="doctor" required>
+                            <option value="">
+                                Seleccioná un médico
+                            </option>
+                        </select>
+                    </div>
+                    <!-- FECHA -->
+                    <div class="campo-turno">
+                        <label for="fecha">
+                            Fecha
+                        </label>
+                        <input type="date" id="fecha" required>
+                    </div>
+                    <!-- HORA -->
+                    <div class="campo-turno">
+                        <label for="hora">
+                            Hora
+                        </label>
+                        <input type="time" id="hora" min="08:00" max="17:59" required>
+                    </div>
+                    <button type="submit" class="btn-principal">
+                        Solicitar turno
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </form>
+                <!-- MENSAJE DENTRO DEL RECTÁNGULO -->
+                <div id="mensajeHorario" class="mensaje-horario"></div>
+
+            </div>
+        </section>
+        </div>
+        <br>
+        </section>
+        <!-- HISTORIAL -->
+        <section class="tabla-seccion">
+            <div class="section-heading">
+                <div>
+                    <span class="small-title">HISTORIAL</span>
+                    <h2>Historial de turnos</h2>
+                </div>
+            </div>
+            <div class="tabla-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Especialidad</th>
+                            <th>Médico</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaTurnos">
+                        <tr>
+                            <td colspan="5">
+                                Cargando turnos...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="../indicadorMenu.js"></script>
+    <!-- nombre del paciente -->
+    <script src="../js/inicioPaciente.js"></script>
+    <script src="../js/turnosPaciente.js"></script>
+    <script src="../js/calendario.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

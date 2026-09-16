@@ -1,0 +1,623 @@
+/* =====================================================
+   6. NUEVOS ELEMENTOS DE CONTROL DE INTERFAZ
+===================================================== */
+.header-seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.acciones-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+/* Buscador optimizado - Forzamos los estilos para que MySQL/Navegador los lea */
+input.search-input, 
+select.search-input {
+    min-width: 200px;
+    height: 40px;
+    padding: 0 15px;
+    border: 1px solid var(--borde) !important;
+    border-radius: 12px !important;
+    font-size: 14px !important;
+    font-family: Arial, sans-serif !important;
+    color: var(--azul) !important;
+    background-color: #ffffff !important;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    transition: border-color 0.2s ease;
+}
+
+input.search-input:focus,
+select.search-input:focus {
+    border-color: var(--azul-iconos) !important;
+}
+
+/* Botones principales (+ Nuevo) */
+.btn-primary {
+    background-color: var(--azul);
+    color: white;
+    border: none;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1a2744;
+}
+
+.btn-edit {
+    background: none;
+    border: none;
+    color: var(--azul-iconos);
+    cursor: pointer;
+    padding: 4px;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.btn-edit:hover {
+    color: var(--azul);
+}
+
+.text-center {
+    text-align: center;
+    color: #64748b;
+    padding: 30px 0 !important;
+}
+.admin-section {
+    padding: 25px;
+    margin-bottom: 25px;
+    background-image:
+        linear-gradient(
+            #b3c1d433,
+            #b3c1d433
+        ),
+        url("../img/fondoBienvenidaAdmin.png");
+    /* background: rgba(255,255,255,0.94); */
+    border: 1px solid #dce6f3;
+    border-radius: 17px;
+    box-shadow:
+        0 5px 20px rgba(41,78,125,0.06);
+}
+/* ================================
+   BUSQUEDA DE HISTORIAS
+   ================================ */
+
+.busqueda-historias {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.campo-busqueda {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    border: 1px solid #d9dfe8;
+    border-radius: 8px;
+    padding: 0 12px;
+    height: 42px;
+}
+
+.campo-busqueda i {
+    width: 18px;
+    height: 18px;
+    color: #6d7c91;
+}
+
+.campo-busqueda input {
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    width: 190px;
+}
+
+.busqueda-historias .btn-principal {
+    height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+/* ================================
+   HISTORIA CLÍNICA ADMIN
+   ================================ */
+
+.historia-datos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.dato-historia {
+    background: white;
+    border: 1px solid #e1e5eb;
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.dato-historia span {
+    display: block;
+    font-size: 13px;
+    color: #7a8493;
+    margin-bottom: 7px;
+}
+
+.dato-historia strong {
+    font-size: 15px;
+    color: #334155;
+}
+
+.historia-consultas {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid #e1e5eb;
+}
+
+.consultas-lista {
+    margin-top: 20px;
+}
+
+.consulta-card {
+    border: 1px solid #e1e5eb;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.consulta-header {
+    border-bottom: 1px solid #e8ebef;
+    padding-bottom: 15px;
+    margin-bottom: 18px;
+}
+
+.consulta-fecha {
+    font-size: 13px;
+    color: #7a8493;
+}
+
+.consulta-header h3 {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.consulta-header p {
+    margin: 0;
+    color: #687386;
+    font-size: 14px;
+}
+
+.consulta-contenido {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.consulta-contenido strong {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+}
+
+.consulta-contenido p {
+    margin: 0;
+    color: #5f6b7a;
+    line-height: 1.5;
+    font-size: 14px;
+}
+/* ================================
+   BOTÓN VER MÁS DE LA TABLA
+   ================================ */
+
+.btn-tabla {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 7px 12px;
+
+    border: 1px solid var(--azul-iconos);
+    border-radius: 8px;
+
+    background-color: white;
+    color: var(--azul-iconos);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.btn-tabla i {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-tabla:hover {
+    background-color: var(--azul-iconos);
+    color: white;
+}
+/* ================================
+   BUSCADOR DE HISTORIAS CLÍNICAS
+   ================================ */
+
+.busqueda-historias {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.campo-busqueda {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    border: 1px solid #d9dfe8;
+    border-radius: 8px;
+    padding: 0 12px;
+    height: 42px;
+}
+
+.campo-busqueda i {
+    width: 18px;
+    height: 18px;
+    color: #6d7c91;
+}
+
+.campo-busqueda input {
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    width: 190px;
+}
+
+.busqueda-historias .btn-principal {
+    height: 42px;
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    background-color: var(--azul);
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.busqueda-historias .btn-principal i {
+    width: 17px;
+    height: 17px;
+}
+
+.busqueda-historias .btn-principal:hover {
+    background-color: #1a2744;
+}
+/* ================================
+   BUSCADOR DE MEDICAMENTOS
+   ================================ */
+
+.busqueda-medicamentos {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.busqueda-medicamentos .btn-principal {
+    height: 42px;
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    background-color: var(--azul);
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.busqueda-medicamentos .btn-principal i {
+    width: 17px;
+    height: 17px;
+}
+
+.busqueda-medicamentos .btn-principal:hover {
+    background-color: #1a2744;
+}
+/* ========================================
+   REPORTE DE TURNOS
+======================================== */
+
+.reporte-turnos {
+    padding: 25px;
+}
+
+.header-reporte {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 2px solid #e2e8f0;
+
+    padding-bottom: 18px;
+    margin-bottom: 25px;
+}
+
+.header-reporte h1 {
+    margin: 0 0 6px 0;
+    color: var(--azul);
+    font-size: 25px;
+}
+
+.header-reporte p {
+    margin: 0;
+    color: #6d7787;
+    font-size: 14px;
+}
+
+.icon-reporte {
+    width: 38px;
+    height: 38px;
+    color: var(--azul-iconos);
+}
+
+
+/* FILTRO DE FECHAS */
+
+.filtro-fechas {
+    display: flex;
+    align-items: end;
+    gap: 15px;
+
+    padding: 20px;
+
+    background: white;
+
+    border: 1px solid #e1e5eb;
+    border-radius: 12px;
+
+    margin-bottom: 10px;
+}
+
+.campo-fecha {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo-fecha label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.campo-fecha input {
+    height: 42px;
+
+    padding: 0 12px;
+
+    border: 1px solid #d9dfe8;
+    border-radius: 8px;
+
+    background-color: white;
+
+    color: #334155;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+}
+
+.campo-fecha input:focus {
+    border-color: var(--azul-iconos);
+}
+
+
+/* BOTÓN */
+
+.btn-generar {
+    height: 42px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+}
+
+.btn-generar i {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* MENSAJE */
+
+.mensaje-reporte {
+    min-height: 20px;
+
+    margin: 8px 0 15px 2px;
+
+    color: #b45309;
+
+    font-size: 13px;
+}
+
+
+/* RESUMEN */
+
+.resumen-reporte {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.reporte-card {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    background: white;
+
+    border: 1px solid #e1e5eb;
+
+    border-radius: 12px;
+
+    padding: 17px;
+}
+
+.reporte-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 10px;
+
+    background-color: #eef3f9;
+
+    color: var(--azul-iconos);
+
+    flex-shrink: 0;
+}
+
+.reporte-card-icon i {
+    width: 20px;
+    height: 20px;
+}
+
+.reporte-card span {
+    display: block;
+
+    color: #7a8493;
+
+    font-size: 12px;
+
+    margin-bottom: 4px;
+}
+
+.reporte-card strong {
+    display: block;
+
+    color: var(--azul);
+
+    font-size: 22px;
+}
+
+
+/* TABLA */
+
+.tabla-reporte {
+    background: white;
+
+    border: 1px solid #e1e5eb;
+
+    border-radius: 12px;
+
+    padding: 20px;
+}
+
+.titulo-tabla {
+    margin-bottom: 15px;
+}
+
+.titulo-tabla h2 {
+    margin: 0;
+
+    font-size: 18px;
+
+    color: #334155;
+}
+/* BOTÓN GENERAR REPORTE */
+
+.btn-generar {
+    height: 42px;
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    background-color: var(--azul);
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.btn-generar:hover {
+    background-color: #1a2744;
+}
+
+.btn-generar i {
+    width: 17px;
+    height: 17px;
+}

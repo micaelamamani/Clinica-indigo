@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
+    <title>Clínica Índigo | Mis turnos</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../estilos/inicioPaciente.css">
+    <link rel="stylesheet" href="../estilos/paginasDoctor.css">
+</head>
+
+<body>
+    <!-- INFORMACIÓN SUPERIOR -->
+    <div class="top-info">
+        <span>
+            <i data-lucide="clock"></i>
+            Lunes a viernes 08:00 - 18:00
+        </span>
+        <span class="separador">|</span>
+        <span>Sábados 08:00 - 13:00</span>
+        <span>
+            <i data-lucide="phone"></i>
+            11 4567 8900
+        </span>
+        <span>
+            <i data-lucide="mail"></i>
+            info@clinicaindigo.com.ar
+        </span>
+        <span>
+            <i data-lucide="map-pin"></i>
+            Av. Mitre 1234, Buenos Aires
+        </span>
+    </div>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <a href="inicioDoctor.html" class="logo">
+            <img src="../img/logoIndigo.png" alt="Clínica Índigo">
+        </a>
+        <nav class="menu">
+            <span class="menu-indicator"></span>
+            <a href="inicioDoctor.html" class="menu-item">
+                <i data-lucide="house"></i>
+                <span>Inicio</span>
+            </a>
+            <a href="turnosDoctor.html" class="menu-item active">
+                <i data-lucide="calendar-days"></i>
+                <span>Mis turnos</span>
+            </a>
+            <a href="pacientesDoctor.html" class="menu-item">
+                <i data-lucide="users"></i>
+                <span>Pacientes</span>
+            </a>
+            <a href="historialDoctor.html" class="menu-item">
+                <i data-lucide="clipboard-list"></i>
+                <span>Historias clínicas</span>
+            </a>
+            <a href="medicamentosDoctor.html" class="menu-item">
+                <i data-lucide="pill"></i>
+                <span>Medicamentos</span>
+            </a>
+        </nav>
+        <!-- USUARIO -->
+        <div class="admin">
+            <div class="admin-icon">
+                <i data-lucide="user-round"></i>
+            </div>
+            <a id="user" href="../Cliente/inicioSesion.html">
+                usuario
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="pagina-doctor">
+            <div class="page-title">
+                <div>
+                    <span class="small-title">
+                        AGENDA MÉDICA
+                    </span>
+                    <h1>Mis turnos</h1>
+                    <p>
+                        Consultá tus próximos turnos y los pacientes asignados.
+                    </p>
+                </div>
+                <div class="page-title-icon">
+                    <i data-lucide="calendar-days"></i>
+                </div>
+            </div>
+            <section class="doctor-info-grid">
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <i data-lucide="clock"></i>
+                    </div>
+                    <div>
+                        <h3>Horario de atención</h3>
+                        <p>
+                            Lunes a viernes
+                        </p>
+                        <strong>
+                            08:00 - 18:00
+                        </strong>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <div>
+                        <h3>Pacientes de hoy</h3>
+                        <strong class="numero-info">
+                            3
+                        </strong>
+                        <p>
+                            pacientes programados
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- PRÓXIMOS TURNOS -->
+            <section class="doctor-section">
+                <div class="section-heading">
+                    <div>
+                        <span class="small-title">
+                            AGENDA
+                        </span>
+                        <h2>Próximos turnos</h2>
+                    </div>
+                </div>
+                <div class="filtro-turnos">
+                    <button class="filtro activo" data-filtro="Todos">
+                        Todos
+                    </button>
+                    <button class="filtro" data-filtro="Pendiente">
+                        Pendientes
+                    </button>
+                    <button class="filtro" data-filtro="Confirmado">
+                        Confirmados
+                    </button>
+                    <button class="filtro" data-filtro="Cancelado">
+                        Cancelados
+                    </button>
+                    <button class="filtro" data-filtro="Atendido">
+                        Atendidos
+                    </button>
+                </div>
+                <br><br>
+                <div class="tabla-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Paciente</th>
+                                <th>DNI</th>
+                                <th>Estado</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tablaTurnos">
+                            <!-- Los turnos se generan con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="../js/inicioDoctor.js"></script>
+    <script src="../js/turnosDoctor.js"></script>
+    <script src="../indicadorMenu.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

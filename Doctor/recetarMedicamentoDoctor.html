@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
+
+    <title>Recetar medicamento | Clínica Índigo</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../estilos/inicioSesion.css">
+    <link rel="stylesheet" href="../estilos/inicioPaciente.css">
+
+</head>
+
+<body>
+
+
+    <!-- ===== HORARIOS ===== -->
+
+    <div class="top-info">
+
+        <span>
+            <i data-lucide="clock"></i>
+            Lunes a viernes 08:00 - 18:00
+        </span>
+
+        <span class="separador">|</span>
+
+        <span>
+            Sábados 08:00 - 13:00
+        </span>
+
+        <span>
+            <i data-lucide="phone"></i>
+            11 4567 8900
+        </span>
+
+        <span>
+            <i data-lucide="mail"></i>
+            info@clinicaindigo.com.ar
+        </span>
+
+        <span>
+            <i data-lucide="map-pin"></i>
+            Av. Mitre 1234, Buenos Aires
+        </span>
+
+    </div>
+
+
+    <!-- ===== FORMULARIO ===== -->
+
+    <main class="registro-main">
+
+        <section class="login-card registro-card">
+
+            <div class="login-overlay"></div>
+
+            <div class="login-content registro-content">
+
+
+                <h1>Recetar medicamento</h1>
+
+
+                <!-- PACIENTE -->
+
+                <div class="paciente-formulario">
+
+                    <div class="paciente-icono">
+                        <i data-lucide="user-round"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Paciente</span>
+
+                        <strong id="nombrePaciente">
+                            María González
+                        </strong>
+
+                        <small id="dniPaciente">
+                            DNI: 45.123.456
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORMULARIO -->
+
+                <form id="medicamentoForm">
+
+
+                    <!-- MEDICAMENTO -->
+
+                    <div class="login-field">
+
+                        <label for="medicamento">
+                            Medicamento
+                        </label>
+
+                        <div class="input-container">
+
+                            <i data-lucide="pill"></i>
+
+                            <input
+                                type="text"
+                                id="medicamento"
+                                name="medicamento"
+                                placeholder="Nombre del medicamento"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FRECUENCIA -->
+
+                    <div class="login-field">
+
+                        <label for="frecuencia">
+                            Frecuencia
+                        </label>
+
+                        <div class="input-container">
+
+                            <i data-lucide="clock-3"></i>
+
+                            <input
+                                type="text"
+                                id="frecuencia"
+                                name="frecuencia"
+                                placeholder="Ej. Cada 8 horas"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FECHA DE INICIO -->
+
+                    <div class="login-field">
+
+                        <label for="fechaInicio">
+                            Fecha de inicio
+                        </label>
+
+                        <div class="input-container">
+
+                            <i data-lucide="calendar-days"></i>
+
+                            <input
+                                type="date"
+                                id="fechaInicio"
+                                name="fechaInicio"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FECHA DE FINALIZACIÓN -->
+
+                    <div class="login-field">
+
+                        <label for="fechaFin">
+                            Fecha de finalización
+                        </label>
+
+                        <div class="input-container">
+
+                            <i data-lucide="calendar-check"></i>
+
+                            <input type="date" id="fechaFin" name="fechaFin">
+                        </div>
+                    </div>
+                    <!-- MOTIVO -->
+                    <div class="login-field">
+
+                        <label for="motivo">
+                            Motivo de la medicación
+                        </label>
+                        <div class="input-container">
+                            <i data-lucide="file-text"></i>
+
+                            <textarea
+                                id="motivo"
+                                name="motivo"
+                                placeholder="¿Por qué se indica este medicamento?"
+                            ></textarea>
+                        </div>
+                    </div>
+                    <!-- BOTÓN -->
+                    <button
+                        type="submit"
+                        class="btn-login"
+                    >
+                        Recetar medicamento
+                    </button>
+                </form>
+                <!-- VOLVER -->
+                <div class="register">
+                    <a href="registrarConsultaDoctor.html">
+                        Volver a la consulta
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- JS -->
+    <script src="../js/recetarMedicamentoDoctor.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

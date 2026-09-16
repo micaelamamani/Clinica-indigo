@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
+    <title>Historia clínica | Clínica Índigo</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../estilos/inicioPaciente.css">
+    <link rel="stylesheet" href="../estilos/paginasPaciente.css">
+</head>
+
+<body>
+    <!-- =====INFORMACIÓN SUPERIOR ===== -->
+    <div class="top-info">
+        <span>
+            <i data-lucide="clock"></i>
+            Lunes a viernes 08:00 - 18:00
+        </span>
+        <span class="separador">|</span>
+        <span>
+            Sábados 08:00 - 13:00
+        </span>
+        <span>
+            <i data-lucide="phone"></i>
+            11 4567 8900
+        </span>
+        <span>
+            <i data-lucide="mail"></i>
+            info@clinicaindigo.com.ar
+        </span>
+        <span>
+            <i data-lucide="map-pin"></i>
+            Av. Mitre 1234, Buenos Aires
+        </span>
+    </div>
+    <!-- ======== MENÚ ========= -->
+    <header class="navbar">
+        <a href="inicioPaciente.html" class="logo">
+            <img src="../img/logoIndigo.png" alt="Clínica Índigo">
+        </a>
+        <nav class="menu">
+            <span class="menu-indicator"></span>
+            <a href="inicioPaciente.html" class="menu-item">
+                <i data-lucide="house"></i>
+                <span>Inicio</span>
+            </a>
+            <a href="turnoPaciente.html" class="menu-item">
+                <i data-lucide="calendar-days"></i>
+                <span>Turnos médicos</span>
+            </a>
+            <a href="historiaPaciente.html" class="menu-item active">
+                <i data-lucide="clipboard-list"></i>
+                <span>Historia clínica</span>
+            </a>
+            <a href="medicamentosPaciente.html" class="menu-item">
+                <i data-lucide="pill"></i>
+                <span>Medicamentos</span>
+            </a>
+        </nav>
+        <div class="admin">
+            <div class="admin-icon">
+                <i data-lucide="user-round"></i>
+            </div>
+            <a id="user" href="inicioSesion.html">usuario</a>
+        </div>
+    </header>
+    <!-- CONTENIDO -->
+    <main class="pagina-paciente">
+        <section class="page-title">
+            <div>
+                <h1>Mi historia clínica</h1>
+                <p id="whitext">Consultá la información registrada durante tus consultas médicas.</p>
+            </div>
+            <div class="page-title-icon">
+                <i data-lucide="clipboard-list"></i>
+            </div>
+        </section>
+        <!-- DATOS DEL PACIENTE -->
+        <section class="datos-paciente">
+            <div class="section-heading">
+                <div>
+                    <span class="small-title">INFORMACIÓN PERSONAL</span>
+                    <h2>Mis datos</h2>
+                </div>
+            </div>
+            <div class="datos-grid">
+                <div class="dato">
+                    <span>Nombre completo</span>
+                    <strong id="nombrePaciente">
+                        Cargando...
+                    </strong>
+                </div>
+
+                <div class="dato">
+                    <span>DNI</span>
+                    <strong id="dniPaciente">
+                        Cargando...
+                    </strong>
+                </div>
+
+                <div class="dato">
+                    <span>Fecha de nacimiento</span>
+                    <strong id="fechaNacimiento">
+                        Cargando...
+                    </strong>
+                </div>
+
+                <div class="dato">
+                    <span>Ciudad</span>
+                    <strong id="ciudadPaciente">
+                        Cargando...
+                    </strong>
+                </div>
+            </div>
+        </section>
+        <!-- CONSULTAS -->
+        <section class="tabla-seccion">
+            <div class="section-heading">
+                <div>
+                    <span class="small-title">
+                        HISTORIAL MÉDICO
+                    </span>
+                    <h2>Consultas anteriores</h2>
+                </div>
+            </div>
+            <div class="tabla-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Especialidad</th>
+                            <th>Médico</th>
+                            <th>Motivo</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaConsultas">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- DETALLE -->
+        <section class="consulta-detalle">
+
+            <div class="detalle-header">
+
+                <div class="detalle-icon">
+                    <i data-lucide="stethoscope"></i>
+                </div>
+
+                <div>
+
+                    <span id="detalleFecha">
+                        CONSULTA
+                    </span>
+
+                    <h2 id="detalleTitulo">
+                        Seleccioná una consulta
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="detalle-grid">
+
+                <div>
+
+                    <span>Motivo</span>
+
+                    <p id="detalleMotivo">
+                        Seleccioná una consulta para ver el detalle.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>Diagnóstico</span>
+
+                    <p id="detalleDiagnostico">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>Observaciones</span>
+
+                    <p id="detalleObservaciones">
+                        -
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../indicadorMenu.js"></script>
+    <script src="../js/inicioPaciente.js"></script>
+    <script src="../js/historialPaciente.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

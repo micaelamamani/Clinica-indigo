@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
+    <title>Registrarse | Clínica Índigo</title>
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../estilos/inicioSesion.css">
+    <link rel="stylesheet" href="../estilos/inicioPaciente.css">
+</head>
+<body>
+    <!-- ==== horarios ===== -->
+    <div class="top-info">
+        <span><i data-lucide="clock"></i>Lunes a viernes 08:00 - 18:00 </span>
+        <span class="separador">|</span>
+        <span>Sábados 08:00 - 13:00</span>
+        <span><i data-lucide="phone"></i>11 4567 8900</span>
+        <span><i data-lucide="mail"></i>info@clinicaindigo.com.ar</span>
+        <span><i data-lucide="map-pin"></i>Av. Mitre 1234, Buenos Aires</span>
+    </div>
+    <!-- ======== REGISTRO ======== -->
+    <main class="registro-main">
+        <section class="login-card registro-card">
+            <!-- Capa transparente -->
+            <div class="login-overlay"></div>
+            <div class="login-content registro-content">
+                <h1>Crear una cuenta</h1>
+                <form id="registroForm">
+                    <!-- ====== DATOS PERSONALES ===== -->
+                    <div class="registro-row">
+                        <div class="login-field">
+                            <label for="nombre">Nombre</label>
+                            <div class="input-container">
+                                <i data-lucide="user-round"></i>
+                                <input type="text" id="nombre" name="nombre">
+                            </div>
+                        </div>
+                        <div class="login-field">
+                            <label for="apellido">Apellido</label>
+                            <div class="input-container">
+                                <i data-lucide="user-round"></i>
+                                <input type="text" id="apellido" name="apellido">
+                            </div>
+                        </div>
+                    </div>
+                   <!-- ====== DNI + FECHA DE NACIMIENTO ====== -->
+                    <div class="registro-row">
+                        <!-- DNI -->
+                        <div class="login-field">
+                            <label for="dni">DNI</label>
+                            <div class="input-container">
+                                <i data-lucide="id-card"></i>
+                                <input type="text" id="dni" name="dni" inputmode="numeric">
+                            </div>
+                        </div>
+                        <!-- FECHA DE NACIMIENTO -->
+                        <div class="login-field">
+                            <label for="fechaNacimiento">Fecha de nacimiento</label>
+                            <div class="input-container">
+                                <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ========DIRECCIÓN Y CIUDAD====== -->
+                    <div class="registro-row">
+                        <div class="login-field">
+                            <label for="direccion">Dirección</label>
+                            <div class="input-container">
+                                <i data-lucide="map-pin"></i>
+                                <input type="text" id="direccion" name="direccion">
+                            </div>
+                        </div>
+                        <div class="login-field">
+                            <label for="ciudad">Ciudad</label>
+                            <div class="input-container">
+                                <i data-lucide="building-2"></i>
+                                <input type="text" id="ciudad" name="ciudad">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ======CUENTA====== -->
+                    <div class="login-field">
+                        <label for="usuario">Elegí un usuario</label>
+                        <div class="input-container">
+                            <i data-lucide="user-round"></i>
+                            <input type="text" id="usuario" name="usuario" autocomplete="username">
+                        </div>
+                    </div>
+                    <div class="login-field">
+                        <label for="contrasenia">Contraseña</label>
+                        <div class="input-container">
+                            <i data-lucide="lock"></i>
+                            <input type="password" id="contrasenia" name="contrasenia" autocomplete="new-password">
+                        </div>
+                    </div>
+                    <!-- ======BOTÓN====== -->
+                    <button type="submit" class="btn-login">Registrarme</button>
+                </form>
+                <!-- VOLVER AL LOGIN -->
+                <div class="register">
+                    <p>¿Ya tenés una cuenta?</p>
+                    <a href="inicioSesion.html">Iniciar sesión</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../js/registrarPaciente.js"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

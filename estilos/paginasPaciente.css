@@ -1,0 +1,824 @@
+/* =========================================
+   PÁGINAS INTERNAS DEL PACIENTE
+   ========================================= */
+
+.pagina-paciente {
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 45px 0 70px;
+}
+
+
+/* =========================================
+   TÍTULO DE PÁGINA
+   ========================================= */
+
+.page-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.page-title h1 {
+    margin: 0 0 8px;
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.page-title p {
+    margin: 0;
+
+    font-size: 15px;
+    color: #68758a;
+}
+
+.page-title-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: #eaf2ff;
+    color: #24529b;
+}
+
+.page-title-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+
+/* =========================================
+   TÍTULOS DE SECCIÓN
+   ========================================= */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.small-title {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+    color: #4671ae;
+}
+
+.section-heading h2 {
+    margin: 0;
+
+    font-size: 21px;
+}
+
+
+/* =========================================
+   PRÓXIMO TURNO
+   ========================================= */
+
+.proximo-turno {
+    padding: 25px;
+
+    margin-bottom: 35px;
+
+    background: white;
+
+    border: 1px solid #dce6f3;
+
+    border-radius: 16px;
+
+    box-shadow: 0 5px 20px rgba(41, 78, 125, 0.06);
+}
+.turno-destacado {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    align-items: center;
+    gap: 25px;
+    padding: 22px;
+    background: #f3f7fd;
+    border-radius: 13px;
+}
+.turno-fecha,
+.turno-doctor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.calendario-icon,
+.doctor-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: white;
+
+    color: #2b5da7;
+}
+
+.turno-fecha strong,
+.turno-doctor strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 15px;
+}
+
+.turno-fecha span,
+.turno-doctor span {
+    display: block;
+    color: #718096;
+    font-size: 13px;
+}
+.turno-especialidad {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.especialidad-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: white;
+    color: #2b5da7;
+}
+.turno-especialidad strong {
+    display: block;
+    font-size: 15px;
+}
+.turno-especialidad span {
+    display: block;
+    margin-top: 5px;
+    color: #718096;
+    font-size: 13px;
+}
+/* =========================================
+   ESTADOS
+   ========================================= */
+
+.estado {
+    display: inline-block;
+
+    padding: 6px 11px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.confirmado {
+    color: #23734a;
+    background: #dcf5e7;
+}
+
+.realizado {
+    color: #35649b;
+    background: #e1edfc;
+}
+
+.cancelado {
+    color: #a34848;
+    background: #fbe3e3;
+}
+
+.activo {
+    color: #28734d;
+    background: #dcf5e7;
+}
+
+.finalizado {
+    color: #65758b;
+    background: #e8edf3;
+}
+
+
+/* =========================================
+   BOTONES
+   ========================================= */
+
+.btn-principal {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 11px 17px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #1854a0;
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.btn-principal:hover {
+    transform: translateY(-1px);
+    background: #123f7b;
+}
+
+.btn-principal svg {
+    width: 16px;
+}
+
+
+/* =========================================
+   TABLAS
+   ========================================= */
+
+.tabla-seccion {
+    padding: 25px;
+
+    margin-bottom: 30px;
+
+    background: white;
+
+    border: 1px solid #dce6f3;
+
+    border-radius: 16px;
+
+    box-shadow: 0 5px 20px rgba(41, 78, 125, 0.05);
+}
+
+.tabla-container {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 13px;
+}
+
+thead {
+    background: #f3f7fd;
+}
+
+th {
+    padding: 14px;
+
+    text-align: left;
+
+    color: #46658d;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.3px;
+}
+
+td {
+    padding: 16px 14px;
+
+    border-top: 1px solid #edf1f6;
+
+    color: #526174;
+}
+
+tbody tr {
+    transition: 0.15s;
+}
+
+tbody tr:hover {
+    background: #f8faff;
+}
+
+
+/* =========================================
+   SOLICITAR TURNO
+   ========================================= */
+
+.solicitar-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 23px 25px;
+
+    border-radius: 15px;
+
+    background: linear-gradient(
+        100deg,
+        #edf5ff,
+        #f6f9fd
+    );
+
+    border: 1px solid #d7e5f7;
+}
+
+.solicitar-icon {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #dbeaff;
+
+    color: #245aa2;
+}
+
+.solicitar-texto {
+    flex: 1;
+}
+
+.solicitar-texto h2 {
+    margin: 0 0 5px;
+
+    font-size: 17px;
+}
+
+.solicitar-texto p {
+    margin: 0;
+
+    color: #68778b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   DATOS DEL PACIENTE
+   ========================================= */
+
+.datos-paciente {
+    padding: 25px;
+
+    margin-bottom: 30px;
+
+    background: white;
+
+    border: 1px solid #dce6f3;
+
+    border-radius: 16px;
+
+    box-shadow: 0 5px 20px rgba(41, 78, 125, 0.05);
+}
+
+.datos-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.dato {
+    padding: 17px;
+
+    border-radius: 11px;
+
+    background: #f5f8fc;
+}
+
+.dato span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 11px;
+
+    color: #718096;
+}
+
+.dato strong {
+    font-size: 14px;
+
+    color: #26384f;
+}
+
+
+/* =========================================
+   BOTÓN DENTRO DE TABLA
+   ========================================= */
+
+.btn-tabla {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 7px 10px;
+
+    border: 1px solid #d4e1f1;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: #3567a6;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.btn-tabla:hover {
+    background: #edf4fd;
+}
+
+.btn-tabla svg {
+    width: 14px;
+}
+
+
+/* =========================================
+   DETALLE DE CONSULTA
+   ========================================= */
+
+.consulta-detalle {
+    padding: 25px;
+
+    margin-bottom: 30px;
+
+    background: #f4f8fd;
+
+    border: 1px solid #dce7f4;
+
+    border-radius: 16px;
+}
+
+.detalle-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.detalle-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: white;
+
+    color: #285b9f;
+}
+
+.detalle-header span {
+    font-size: 10px;
+
+    font-weight: 700;
+
+    color: #5274a0;
+}
+
+.detalle-header h2 {
+    margin: 4px 0 0;
+
+    font-size: 17px;
+}
+
+.detalle-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.detalle-grid div {
+    padding: 17px;
+
+    background: white;
+
+    border-radius: 10px;
+}
+
+.detalle-grid span {
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: #5e7798;
+}
+
+.detalle-grid p {
+    margin: 8px 0 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: #59697d;
+}
+
+
+/* =========================================
+   RESUMEN DE MEDICAMENTOS
+   ========================================= */
+
+.medicamentos-resumen {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+}
+
+.mini-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    background: white;
+
+    border: 1px solid #dce6f3;
+
+    border-radius: 14px;
+
+    box-shadow: 0 5px 20px rgba(41, 78, 125, 0.04);
+}
+
+.mini-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #eaf2ff;
+
+    color: #2d62a5;
+}
+
+.mini-card strong {
+    display: block;
+
+    font-size: 22px;
+
+    color: #294b75;
+}
+
+.mini-card span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #738095;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   MEDICAMENTOS
+   ========================================= */
+
+.medicamento-nombre {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.medicamento-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #edf4fd;
+
+    color: #3567a6;
+}
+
+.medicamento-icon svg {
+    width: 17px;
+}
+
+.medicamento-nombre strong {
+    color: #30445d;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   AVISO
+   ========================================= */
+
+.aviso-medico {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 22px;
+
+    background: #f1f6fc;
+
+    border: 1px solid #dce7f4;
+
+    border-radius: 13px;
+}
+
+.aviso-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: #3569a8;
+}
+
+.aviso-medico h3 {
+    margin: 0 0 4px;
+
+    font-size: 14px;
+}
+
+.aviso-medico p {
+    margin: 0;
+
+    font-size: 12px;
+
+    color: #69778a;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .turno-destacado {
+        grid-template-columns: 1fr;
+    }
+
+    .datos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detalle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .medicamentos-resumen {
+        grid-template-columns: 1fr;
+    }
+
+    .solicitar-box {
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .pagina-paciente {
+        width: 92%;
+        padding-top: 30px;
+    }
+
+    .page-title h1 {
+        font-size: 25px;
+    }
+
+    .datos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tabla-seccion,
+    .proximo-turno,
+    .datos-paciente {
+        padding: 18px;
+    }
+
+    .solicitar-box {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+#whitext{
+    color:rgb(234, 239, 245);
+}
+/*solicitar turno*/
+#turnoForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    align-items: end;
+}
+.campo-turno {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.campo-turno label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #26375f;
+}
+.campo-turno select,
+.campo-turno input {
+    height: 42px;
+    min-width: 190px;
+    padding: 0 12px;
+    border: 1px solid #b9c8dc;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #26375f;
+    font-size: 14px;
+    outline: none;
+}
+.campo-turno select:focus,
+.campo-turno input:focus {
+    border-color: #5c7da9;
+}
+#turnoForm .btn-principal {
+    border: none;
+    cursor: pointer;
+}
+.mensaje-horario {
+    display: none;
+
+    margin-top: 10px;
+
+    color: #b84c4c;
+    font-size: 13px;
+    font-weight: 500;
+}

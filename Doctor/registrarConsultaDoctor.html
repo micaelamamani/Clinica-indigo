@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
+
+    <title>Registrar consulta | Clínica Índigo</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="../estilos/inicioSesion.css">
+    <link rel="stylesheet" href="../estilos/inicioPaciente.css">
+
+</head>
+
+<body>
+
+    <!-- ===== HORARIOS ===== -->
+
+    <div class="top-info">
+
+        <span>
+            <i data-lucide="clock"></i>
+            Lunes a viernes 08:00 - 18:00
+        </span>
+
+        <span class="separador">|</span>
+
+        <span>
+            Sábados 08:00 - 13:00
+        </span>
+
+        <span>
+            <i data-lucide="phone"></i>
+            11 4567 8900
+        </span>
+
+        <span>
+            <i data-lucide="mail"></i>
+            info@clinicaindigo.com.ar
+        </span>
+
+        <span>
+            <i data-lucide="map-pin"></i>
+            Av. Mitre 1234, Buenos Aires
+        </span>
+
+    </div>
+
+
+    <!-- ===== REGISTRAR CONSULTA ===== -->
+
+    <main class="registro-main">
+
+        <section class="login-card registro-card">
+
+            <div class="login-overlay"></div>
+
+            <div class="login-content registro-content">
+
+                <h1>Registrar consulta</h1>
+
+
+                <!-- PACIENTE -->
+
+                <div class="paciente-formulario">
+
+                    <div class="paciente-icono">
+                        <i data-lucide="user-round"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Paciente</span>
+
+                        <strong id="nombrePaciente">
+                            María González
+                        </strong>
+
+                        <small id="dniPaciente">
+                            DNI: 45.123.456
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <form id="consultaForm">
+
+
+                    <!-- MOTIVO -->
+
+                    <div class="login-field">
+
+                        <label for="motivo">
+                            Motivo de consulta
+                        </label>
+
+                        <div class="input-container">
+
+                            <i data-lucide="message-circle"></i>
+
+                            <input type="text" id="motivo" name="motivo" placeholder="Ingresá el motivo de la consulta"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DIAGNÓSTICO -->
+
+                    <div class="login-field">
+
+                        <label for="diagnostico">
+                            Diagnóstico
+                        </label>
+
+                        <div class="input-container">
+
+                            <i data-lucide="stethoscope"></i>
+
+                            <textarea id="diagnostico" name="diagnostico" placeholder="Ingresá el diagnóstico"
+                                required></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- OBSERVACIONES -->
+
+                    <div class="login-field">
+
+                        <label for="observaciones">
+                            Observaciones
+                        </label>
+
+                        <div class="input-container">
+
+                            <i data-lucide="file-text"></i>
+
+                            <textarea id="observaciones" name="observaciones"
+                                placeholder="Ingresá observaciones o indicaciones"></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RECETAR -->
+
+                    <div class="recetar">
+
+                        <div>
+
+                            <span>
+                                ¿Necesita medicación?
+                            </span>
+
+                            <small>
+                                Podés recetar un medicamento después de registrar la consulta.
+                            </small>
+                        </div>
+                        <button type="button" class="btn-recetar" id="btnRecetar">
+
+                            <i data-lucide="pill"></i>
+                            Recetar medicamento
+                        </button>
+                        <button type="button" class="btn-login" id="btnFinalizar">
+                            Finalizar consulta
+                        </button>
+                    </div>
+                    <!-- REGISTRAR -->
+                    <button type="submit" class="btn-login">
+                        Registrar consulta
+                    </button>
+                </form>
+                <!-- VOLVER -->
+                <div class="register">
+
+                    <a href="turnosDoctor.html">
+                        Volver a mis turnos
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../js/registrarConsultaDoctor.js"></script>
+    <script src="../js/registrarConsultaDoctor.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

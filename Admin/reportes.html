@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
+    <title>Clínica Índigo | Reporte de Turnos</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../estilos/estiloGeneral.css">
+    <link rel="stylesheet" href="../estilos/estiloAdmin.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <a href="inicioAdmin.html" class="logo">
+            <div class="logo-name">
+                <img src="../img/logoIndigo.png" alt="">
+            </div>
+        </a>
+        <nav class="menu">
+            <span class="menu-indicator"></span>
+            <a href="inicioAdmin.html" class="menu-item">
+                <i data-lucide="house"></i>
+                <span>Inicio</span>
+            </a>
+            <a href="pacientes.html" class="menu-item">
+                <i data-lucide="user-round"></i>
+                <span>Pacientes</span>
+            </a>
+
+            <a href="turnos.html" class="menu-item">
+                <i data-lucide="calendar-days"></i>
+                <span>Turnos médicos</span>
+            </a>
+
+            <a href="historias.html" class="menu-item">
+                <i data-lucide="clipboard-list"></i>
+                <span>Historias clínicas</span>
+            </a>
+
+            <a href="medicamentos.html" class="menu-item">
+                <i data-lucide="pill"></i>
+                <span>Medicamentos</span>
+            </a>
+
+            <a href="reportes.html" class="menu-item active">
+                <i data-lucide="info"></i>
+                <span>Reportes</span>
+            </a>
+        </nav>
+        <div class="admin">
+            <div class="admin-icon">
+                <i data-lucide="user-round"></i>
+            </div>
+            <a id="user" href="../Cliente/inicioSesion.html">
+                Admin
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="admin-section reporte-turnos">
+            <div class="header-reporte">
+                <div>
+                    <h1>Reporte de turnos</h1>
+                    <p>
+                        Consulta los turnos registrados
+                        dentro de un período determinado.
+                    </p>
+                </div>
+                <i data-lucide="calendar-days" class="icon-reporte"></i>
+            </div>
+            <!-- FILTRO DE FECHAS -->
+            <div class="filtro-fechas">
+                <div class="campo-fecha">
+                    <label for="fechaDesde">
+                        Desde
+                    </label>
+                    <input type="date" id="fechaDesde">
+                </div>
+                <div class="campo-fecha">
+                    <label for="fechaHasta">
+                        Hasta
+                    </label>
+                    <input type="date" id="fechaHasta">
+                </div>
+                <button class="btn-principal btn-generar" id="btnGenerar">
+                    <i data-lucide="file-chart-column"></i>
+                    Generar reporte
+                </button>
+            </div>
+            <p id="mensajeReporte" class="mensaje-reporte"></p>
+            <!-- RESUMEN -->
+            <div class="resumen-reporte" id="resumenReporte">
+                <div class="reporte-card">
+                    <div class="reporte-card-icon">
+                        <i data-lucide="calendar-days"></i>
+                    </div>
+                    <div>
+                        <span>Total de turnos</span>
+                        <strong id="totalTurnos">
+                            0
+                        </strong>
+                    </div>
+                </div>
+                <div class="reporte-card">
+
+                    <div class="reporte-card-icon">
+                        <i data-lucide="clock-3"></i>
+                    </div>
+                    <div>
+                        <span>Pendientes</span>
+                        <strong id="totalPendientes">
+                            0
+                        </strong>
+                    </div>
+                </div>
+                <div class="reporte-card">
+                    <div class="reporte-card-icon">
+                        <i data-lucide="circle-check"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Confirmados</span>
+
+                        <strong id="totalConfirmados">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="reporte-card">
+
+                    <div class="reporte-card-icon">
+                        <i data-lucide="check-check"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Atendidos</span>
+
+                        <strong id="totalAtendidos">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="reporte-card">
+
+                    <div class="reporte-card-icon">
+                        <i data-lucide="circle-x"></i>
+                    </div>
+
+                    <div>
+
+                        <span>Cancelados</span>
+
+                        <strong id="totalCancelados">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TABLA -->
+
+            <div class="tabla-reporte">
+
+                <div class="titulo-tabla">
+
+                    <h2>
+                        Detalle de turnos
+                    </h2>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Fecha</th>
+
+                                <th>Hora</th>
+
+                                <th>Paciente</th>
+
+                                <th>Médico</th>
+
+                                <th>Especialidad</th>
+
+                                <th>Estado</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="tablaReporte">
+
+                            <tr>
+
+                                <td colspan="6" class="text-center">
+                                    Seleccioná un período
+                                    para generar el reporte.
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <script src="../indicadorMenu.js"></script>
+
+    <script src="../js/reporteTurnos.js"></script>
+
+</body>
+
+</html>

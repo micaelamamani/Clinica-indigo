@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
+    <title>Clínica Índigo | Doctor</title>
+    <!-- Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../estilos/inicioPaciente.css">
+</head>
+<body>
+    <!-- ===== INFORMACIÓN SUPERIOR ===== -->
+    <div class="top-info">
+        <span>
+            <i data-lucide="clock"></i>
+            Lunes a viernes 08:00 - 18:00
+        </span>
+        <span class="separador">|</span>
+        <span>
+            Sábados 08:00 - 13:00
+        </span>
+        <span>
+            <i data-lucide="phone"></i>
+            11 4567 8900
+        </span>
+        <span>
+            <i data-lucide="mail"></i>
+            info@clinicaindigo.com.ar
+        </span>
+        <span>
+            <i data-lucide="map-pin"></i>
+            Av. Mitre 1234, Buenos Aires
+        </span>
+    </div>
+    <!-- ===== MENÚ ===== -->
+    <header class="navbar">
+
+        <a href="inicioDoctor.html" class="logo">
+            <img src="../img/logoIndigo.png" alt="Clínica Índigo">
+        </a>
+        <nav class="menu">
+            <span class="menu-indicator"></span>
+            <!-- INICIO -->
+            <a href="#" class="menu-item active">
+                <i data-lucide="house"></i>
+                <span>Inicio</span>
+            </a>
+            <!-- TURNOS -->
+            <a href="turnosDoctor.html" class="menu-item">
+                <i data-lucide="calendar-days"></i>
+                <span>Mis turnos</span>
+            </a>
+            <!-- PACIENTES -->
+            <a href="pacientesDoctor.html" class="menu-item">
+                <i data-lucide="users"></i>
+                <span>Pacientes</span>
+            </a>
+            <!-- HISTORIAS -->
+            <a href="historialDoctor.html" class="menu-item">
+                <i data-lucide="clipboard-list"></i>
+                <span>Historias clínicas</span>
+            </a>
+            <!-- MEDICAMENTOS -->
+            <a href="#" class="menu-item">
+                <i data-lucide="pill"></i>
+                <span>Medicamentos</span>
+            </a>
+        </nav>
+        <!-- USUARIO -->
+        <div class="admin">
+            <div class="admin-icon">
+                <i data-lucide="user-round"></i>
+            </div>
+            <a id="user" href="../Cliente/inicioSesion.html">
+                usuario
+            </a>
+        </div>
+    </header>
+    <main>
+        <div id="heroContainer">
+            <section class="hero">
+                <div class="hero-text">
+                    <h1>
+                        ¡Bienvenido/a,
+                        <span id="nombreDoctor"></span>!
+                    </h1>
+                    <h2>
+                        Tu trabajo también es cuidar
+                    </h2>
+                    <p>
+                        Desde este espacio podés gestionar tus turnos,
+                        consultar la historia clínica de tus pacientes
+                        y registrar la información de cada consulta.
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <!-- Imagen mediante CSS -->
+                </div>
+            </section>
+        </div>
+        <section class="servicios">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i data-lucide="calendar-days"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Mis turnos</h3>
+                    <p>
+                        Consultá los turnos asignados,
+                        horarios y pacientes que atenderás.
+                    </p>
+                    <span class="ver-mas">
+                        Ver mis turnos
+                        <i data-lucide="arrow-right"></i>
+                    </span>
+                </div>
+                <!-- DETALLES -->
+                <div class="service-details">
+                    <div class="details-header">
+                        <i data-lucide="calendar-days"></i>
+                        <h3>
+                            Próximos turnos
+                        </h3>
+                    </div>
+                    <p>
+                        Revisá tus próximos turnos y conocé
+                        qué pacientes tenés programados para atender.
+                    </p>
+                    <div class="turno-step">
+                        <span>1</span>
+                        <p>
+                            Consultá la fecha y hora del turno.
+                        </p>
+                    </div>
+                    <div class="turno-step">
+                        <span>2</span>
+                        <p>Revisá los datos del paciente.</p>
+                    </div>
+                    <div class="turno-step">
+                        <span>3</span>
+                        <p>
+                            Al finalizar la atención,
+                            registrá la consulta.
+                        </p>
+                    </div>
+                    <button class="btn-turno">
+                        <a href="#">
+                            Ver turnos
+                        </a>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- ===== CONSULTA MÉDICA ===== -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i data-lucide="stethoscope"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Registrar consulta</h3>
+                    <p>
+                        Registrá el motivo, diagnóstico
+                        y observaciones de la atención médica.
+                    </p>
+                    <span class="ver-mas">
+                        Registrar consulta
+
+                        <i data-lucide="arrow-right"></i>
+                    </span>
+                </div>
+                <!-- DETALLES -->
+                <div class="service-details">
+                    <div class="details-header">
+                        <i data-lucide="stethoscope"></i>
+                        <h3>
+                            Consulta médica
+                        </h3>
+                    </div>
+                    <p>
+                        Una vez atendido el paciente,
+                        podés registrar la información correspondiente
+                        a la consulta.
+                    </p>
+                    <div class="history-info">
+                        <div>
+                            <strong>
+                                Motivo
+                            </strong>
+                            <span>
+                                Motivo por el cual el paciente
+                                acudió a la consulta.
+                            </span>
+                        </div>
+                        <div>
+                            <strong>
+                                Diagnóstico
+                            </strong>
+                            <span>
+                                Diagnóstico realizado durante
+                                la consulta.
+                            </span>
+                        </div>
+                        <div>
+                            <strong>
+                                Observaciones
+                            </strong>
+                            <span>
+                                Información adicional sobre
+                                el estado del paciente.
+                            </span>
+                        </div>
+                    </div>
+                    <button class="btn-turno">
+                        <a href="#">
+                            Registrar consulta
+                        </a>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- ===== HISTORIA CLÍNICA ===== -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i data-lucide="clipboard-list"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Historia clínica</h3>
+                    <p>
+                        Buscá un paciente y consultá sus
+                        antecedentes, consultas y diagnósticos.
+                    </p>
+                    <span class="ver-mas">
+                        Consultar historia
+                        <i data-lucide="arrow-right"></i>
+                    </span>
+                </div>
+                <!-- DETALLES -->
+                <div class="service-details">
+                    <div class="details-header">
+                        <i data-lucide="search"></i>
+                        <h3>
+                            Buscar paciente
+                        </h3>
+                    </div>
+                    <p>
+                        Podés buscar un paciente para consultar
+                        la información registrada en su historia clínica.
+                    </p>
+                    <div class="history-info">
+                        <div>
+                            <strong>
+                                Datos personales
+                            </strong>
+                            <span>
+                                Nombre, apellido y DNI.
+                            </span>
+                        </div>
+                        <div>
+                            <strong>
+                                Consultas anteriores
+                            </strong>
+                            <span>
+                                Motivos, diagnósticos y observaciones.
+                            </span>
+                        </div>
+                        <div>
+                            <strong>
+                                Medicación
+                            </strong>
+                            <span>
+                                Medicamentos registrados
+                                durante sus consultas.
+                            </span>
+                        </div>
+                    </div>
+                    <button class="btn-turno">
+                        <a href="#">
+                            Buscar paciente
+                        </a>
+                        <i data-lucide="search"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-brand">
+                <img src="../img/logoIndigo.png" alt="Clínica Índigo">
+                <p>Tu salud es nuestra prioridad.</p>
+            </div>
+            <div class="footer-column">
+                <h3>
+                    <i data-lucide="clock"></i>
+                    Horarios de atención
+                </h3>
+                <p>
+                    Lunes a viernes<br>
+                    08:00 - 18:00
+                </p>
+                <p>
+                    Sábados<br>
+                    08:00 - 13:00
+                </p>
+            </div>
+            <div class="footer-column">
+                <h3>
+                    <i data-lucide="phone"></i>
+                    Contacto
+                </h3>
+                <p>
+                    <i data-lucide="phone"></i>
+                    11 4567 8900
+                </p>
+                <p>
+                    <i data-lucide="mail"></i>
+                    info@clinicaindigo.com.ar
+                </p>
+                <p>
+                    <i data-lucide="map-pin"></i>
+                    Av. Mitre 1234, Buenos Aires
+                </p>
+            </div>
+            <div class="footer-column">
+                <h3>
+                    Enlaces rápidos
+                </h3>
+                <a href="inicioDoctor.html">
+                    Inicio
+                </a>
+                <a href="#">
+                    Mis turnos
+                </a>
+                <a href="#">Pacientes</a>
+                <a href="#">
+                    Historias clínicas
+                </a>
+                <a href="#">Medicamentos</a>
+            </div>
+        </footer>
+    </main>
+    <script src="../js/inicioDoctor.js"></script>
+    <script src="../indicadorMenu.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

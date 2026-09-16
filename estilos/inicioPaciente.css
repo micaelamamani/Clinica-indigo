@@ -1,0 +1,945 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+
+    --azul: #26375f;
+
+    --azul-claro: #5c7da9;
+
+    --azul-suave: #dce8f7;
+
+    --azul-activo: #e3eefc;
+
+    --borde: #b5c9e3;
+
+    --blanco: rgba(255,255,255,0.90);
+
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--azul);
+
+    background:
+
+        linear-gradient(
+            rgba(45,58,70,0.48),
+            rgba(45,58,70,0.48)
+        ),
+
+        url("../img/fondoSalud.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+}
+
+
+
+/* =========================
+   INFORMACIÓN SUPERIOR
+========================= */
+
+.top-info {
+    height: 35px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: rgba(235,242,250,0.88);
+    color: #39495f;
+    font-size: 13px;
+}
+.top-info span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.top-info svg {
+    width: 13px;
+    height: 13px;
+}
+.separador {
+    opacity: 0.5;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+
+    width: 100%;
+
+    min-height: 65px;
+
+    padding: 8px 5%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    background:
+        rgba(245,248,252,0.78);
+
+    backdrop-filter: blur(8px);
+
+}
+
+
+.logo {
+
+    width: 245px;
+
+    flex-shrink: 0;
+}
+
+
+.logo img {
+
+    width: 145px;
+
+    height: auto;
+
+    display: block;
+}
+
+
+
+/* =========================
+   MENU
+========================= */
+
+.menu {
+
+    position: relative;
+
+    height: 55px;
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+}
+
+
+.menu-item {
+
+    position: relative;
+
+    z-index: 2;
+
+    height: 50px;
+
+    padding: 0 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--azul);
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+}
+
+
+.menu-item:hover {
+
+    color: #416a9d;
+}
+
+
+.menu-item svg {
+
+    width: 22px;
+
+    height: 22px;
+
+    color: var(--azul-claro);
+}
+
+
+
+/* INDICADOR */
+
+.menu-indicator {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    height: 4px;
+
+    width: 0;
+
+    background: #557bad;
+
+    border-radius: 10px;
+
+    transition:
+        left 0.35s ease,
+        width 0.35s ease;
+}
+
+
+
+/* =========================
+   USUARIO
+========================= */
+#user{
+    color: #26375f;
+}
+.admin {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+}
+
+
+.admin-icon {
+
+    width: 34px;
+
+    height: 34px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #8da9d0;
+
+    color: white;
+}
+
+
+.admin-icon svg {
+
+    width: 20px;
+
+}
+
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+
+    width: 100%;
+}
+
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position: relative;
+    width: calc(110% - 15px);
+    height: 210px;
+    margin: 0px auto 0;
+    display: flex;
+    overflow: hidden;
+    border-radius: 0 0 18px 18px;
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(239,245,251,0.96) 0%,
+            rgba(239,245,251,0.80) 35%,
+            rgba(255,255,255,0.05) 65%
+        ),
+
+        url("../img/fondoPaciente.png");
+        background-size: cover;
+    background-position: center;
+}
+#heroContainer {
+    width: calc(100% - 20px);
+    height: 205px;
+    margin: 10px auto 0;
+     display: flex;
+    overflow: hidden;
+    border-radius: 0 0 18px 18px;
+    background-image: url('../img/fondoBienvenidaAdmin.png');
+    background-size: cover;
+    background-position: center;
+}
+/* TEXTO HERO */
+
+.hero-text {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 42%;
+
+    padding: 45px 0 0 40px;
+}
+
+
+.hero-text h1 {
+
+    font-size: 25px;
+
+    margin-bottom: 2px;
+}
+
+
+.hero-text h1 span {
+
+    color: #20365e;
+}
+
+
+.hero-text h2 {
+
+    font-size: 28px;
+
+    margin-bottom: 5px;
+}
+
+
+.hero-text p {
+
+    max-width: 310px;
+
+    font-size: 13px;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+}
+
+
+
+/* =========================
+   SERVICIOS
+========================= */
+
+.services {
+
+    position: relative;
+
+    width: calc(100% - 80px);
+
+    margin: 18px auto;
+
+    min-height: 155px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 50px;
+
+}
+
+
+
+/* =========================
+   TARJETAS DE SERVICIOS
+========================= */
+
+.servicios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    width: 92%;
+    margin: 18px auto 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 10;
+}
+
+
+/* TARJETA */
+
+.service-card {
+    position: relative;
+
+    min-height: 175px;
+
+    padding: 25px 22px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 17px;
+
+    background-color: rgba(255, 255, 255, 0.94);
+
+    border-radius: 19px;
+
+    box-shadow:
+        0 4px 12px rgba(50, 70, 90, 0.08);
+
+    border: 2px solid transparent;
+
+    cursor: pointer;
+}
+
+
+/* TARJETA ACTIVA */
+
+.service-card.active {
+    background-color: #edf5ff;
+    border-color: #a9c1e2;
+}
+
+
+/* ICONO */
+
+.service-icon {
+    width: 52px;
+    height: 52px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background-color: #e9f1fc;
+
+    color: #5c7da9;
+}
+
+
+.service-icon svg {
+    width: 27px;
+    height: 27px;
+
+    stroke-width: 1.8;
+}
+
+
+/* TEXTO */
+
+.service-content {
+    flex: 1;
+}
+
+
+.service-content h3 {
+    font-size: 16px;
+
+    margin-bottom: 12px;
+
+    color: var(--azul);
+}
+
+
+.service-content p {
+    font-size: 13px;
+
+    line-height: 1.45;
+
+    color: #53627a;
+
+    margin-bottom: 13px;
+}
+
+
+/* VER MÁS */
+
+.ver-mas {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #5c86c0;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.ver-mas svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* =========================
+   PANEL DESPLEGABLE
+========================= */
+
+.service-details {
+    display: none;
+
+    position: absolute;
+
+    top: -2px;
+
+    left: calc(100% + 18px);
+
+    width: 360px;
+
+    min-height: 220px;
+
+    padding: 25px;
+
+    background-color: #f7faff;
+
+    border: 2px solid #a9c1e2;
+
+    border-radius: 19px;
+
+    box-shadow:
+        0 8px 25px rgba(40, 60, 90, 0.18);
+
+    z-index: 100;
+}
+
+
+/* Cuando está abierto */
+
+.service-card.active .service-details {
+    display: block;
+}
+
+
+/* La tercera tarjeta abre hacia la izquierda */
+
+.service-card:nth-child(3) .service-details {
+    left: auto;
+    right: calc(100% + 18px);
+}
+
+
+/* =========================
+   ENCABEZADO DEL PANEL
+========================= */
+
+.details-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 17px;
+}
+
+
+.details-header svg {
+    width: 25px;
+    height: 25px;
+
+    color: #5c7da9;
+}
+
+
+.details-header h3 {
+    font-size: 18px;
+
+    color: var(--azul);
+}
+
+
+/* TEXTO DEL PANEL */
+
+.service-details > p {
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: #53627a;
+
+    margin-bottom: 13px;
+}
+
+
+/* =========================
+   ESPECIALIDADES
+========================= */
+
+.specialties {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 9px;
+
+    margin-top: 15px;
+}
+
+
+.specialties div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px;
+
+    background-color: #e9f1fc;
+
+    border-radius: 10px;
+
+    color: #3e5f8c;
+
+    font-size: 12px;
+}
+
+
+.specialties svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+/* =========================
+   PASOS PARA TURNO
+========================= */
+
+.turno-step {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 10px 0;
+}
+
+
+.turno-step span {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background-color: #dceafa;
+
+    color: #5276a6;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+.turno-step p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #53627a;
+}
+
+
+/* BOTÓN */
+
+.btn-turno {
+    margin-top: 12px;
+
+    padding: 10px 17px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background-color: #5c7da9;
+
+    color: white;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+.btn-turno svg {
+    width: 15px;
+    height: 15px;
+
+    vertical-align: middle;
+
+    margin-left: 5px;
+}
+
+
+/* =========================
+   HISTORIA CLÍNICA
+========================= */
+
+.history-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    margin-top: 15px;
+}
+
+
+.history-info div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    padding: 10px 12px;
+
+    background-color: #e9f1fc;
+
+    border-radius: 10px;
+}
+
+
+.history-info strong {
+    font-size: 13px;
+
+    color: #3e5f8c;
+}
+
+
+.history-info span {
+    font-size: 12px;
+
+    color: #68748a;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .servicios {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-details,
+    .service-card:nth-child(3) .service-details {
+        position: absolute;
+
+        left: 0;
+        right: auto;
+
+        top: calc(100% + 10px);
+
+        width: 100%;
+    }
+
+}
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+    min-height: 125px;
+
+    padding: 20px 5%;
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr
+        1fr
+        1.2fr
+        0.8fr;
+    gap: 35px;
+    background: rgba(45,91,151,0.96);
+    color: white;
+}
+.footer-brand img {
+    width: 125px;
+    filter: brightness(0) invert(1);
+}
+.footer-brand p {
+    margin-top: 5px;
+    font-size: 11px;
+}
+.footer-column {
+    border-left:
+        1px solid
+        rgba(255,255,255,0.25); 
+    padding-left: 25px;
+}
+.footer-column h3 {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+.footer-column h3 svg {
+    width: 16px;
+}
+.footer-column p {
+    margin-bottom: 7px;
+    font-size: 11px;
+    line-height: 1.4;
+}
+.footer-column p svg {
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.footer-column a {
+    display: block;
+    margin-bottom: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    opacity: 0.9;
+}
+.footer-column a:hover {
+    opacity: 1;
+}
+a{
+    text-decoration: none;
+    color:#e3eefc;
+}
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+
+        padding: 8px 20px;
+
+    }
+
+    .logo {
+
+        width: 150px;
+
+    }
+
+    .menu-item {
+
+        padding: 0 6px;
+
+        font-size: 13px;
+
+    }
+
+    .services {
+
+        gap: 20px;
+
+    }
+
+    .service-detail {
+
+        width: 350px;
+
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .top-info {
+
+        display: none;
+
+    }
+
+    .navbar {
+
+        flex-wrap: wrap;
+
+    }
+
+    .menu {
+
+        order: 3;
+
+        flex-basis: 100%;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+    }
+
+    .services {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}

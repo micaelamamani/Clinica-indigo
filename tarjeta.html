@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tarjeta.css">
+</head>
+<body>
+<div class="contenedor-accesos-paciente">
+  <p class="etiqueta-seccion">Accesos rápidos a tu salud</p>
+
+  <div class="contenedor-dinamico-paciente" id="contenedorDinamico">
+    
+    <!-- TARJETA 1: ATENCIÓN MÉDICA (Clic para expandir el panel por encima) -->
+    <div class="tarjeta-modulo" id="tarjetaMedica" onclick="manejarTarjetaMedica()">
+      <div>
+        <div class="tarjeta-emoticono icono-fondo-azul">📋</div>
+        <h3 class="tarjeta-subtitulo">Atención Médica</h3>
+        <p class="tarjeta-texto">
+          Consultá las especialidades disponibles, agendá una nueva consulta presencial o virtual y revisá tus turnos activos.
+        </p>
+        <button class="tarjeta-accion">Ver Especialidades</button>
+      </div>
+
+      <!-- ESTE BLOQUE AHORA FLOTA POR ENCIMA DE LAS OTRAS TARJETAS -->
+      <div class="columna-especialidades-derecha">
+        <h4 class="titulo-lista">Especialidades Activas:</h4>
+        <ul class="lista-texto-plano">
+          <li>🩺 Clínica Médica</li>
+          <li>👶 Pediatría</li>
+          <li>❤️ Cardiología</li>
+          <li>✨ Dermatología</li>
+          <li>🦴 Traumatología</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TARJETA 2: MEDICAMENTOS (Se queda en su lugar inmóvil) -->
+    <div class="tarjeta-modulo" id="tarjetaMedicamentos">
+      <div>
+        <div class="tarjeta-emoticono icono-fondo-verde">💊</div>
+        <h3 class="tarjeta-subtitulo">Mis Medicamentos</h3>
+        <p class="tarjeta-texto">
+          Revisá las indicaciones activas registradas por los médicos de la clínica, los horarios de tus dosis y el estado de tus tratamientos vigentes.
+        </p>
+      </div>
+      <button class="tarjeta-accion" style="color: #059669;">Ver Medicación</button>
+    </div>
+
+    <!-- TARJETA 3: INFORMACIÓN IMPORTANTE (Se queda en su lugar inmóvil) -->
+    <div class="tarjeta-modulo tarjeta-borde-alerta" id="tarjetaInfo">
+      <div>
+        <div class="tarjeta-emoticono icono-fondo-amarillo">💡</div>
+        <h3 class="tarjeta-subtitulo">Antes de tu consulta</h3>
+        <p class="tarjeta-texto">
+          Recordá presentarte <span style="font-weight:600; color:#334155;">15 minutos antes</span> del horario de tu cita presencial. Es obligatorio traer tu DNI físico.
+        </p>
+      </div>
+      <div class="bloque-aviso-sede">
+        Sede Central: Av. Rivadavia 4500
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="tarjeta.js"></script>
+</body>
+</html>
