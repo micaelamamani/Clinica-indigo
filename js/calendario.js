@@ -10,21 +10,17 @@ const mes = String(hoy.getMonth() + 1).padStart(2, "0");
 const dia = String(hoy.getDate()).padStart(2, "0");
 
 inputFecha.min = `${año}-${mes}-${dia}`;
-
-
 // Mostrar mensaje
 function mostrarMensaje(mensaje) {
     mensajeHorario.textContent = mensaje;
     mensajeHorario.style.display = "block";
 }
 
-
 // Ocultar mensaje
 function ocultarMensaje() {
     mensajeHorario.textContent = "";
     mensajeHorario.style.display = "none";
 }
-
 
 // Cambiar límites de horario según el día
 function cambiarHorario() {
@@ -58,18 +54,14 @@ function cambiarHorario() {
     }
 }
 
-
 // Cuando cambia la fecha
 inputFecha.addEventListener("input", function () {
-
     ocultarMensaje();
 
     if (!this.value) {
         return;
     }
-
-    const fechaSeleccionada =
-        new Date(this.value + "T00:00:00");
+    const fechaSeleccionada =new Date(this.value + "T00:00:00");
 
     const diaSemana = fechaSeleccionada.getDay();
 
@@ -84,49 +76,34 @@ inputFecha.addEventListener("input", function () {
         inputHora.value = "";
 
         cambiarHorario();
-
         return;
     }
-
     cambiarHorario();
-
     validarHora();
 });
-
-
 // Cuando cambia la hora
 inputHora.addEventListener("input", function () {
     validarHora();
 });
 
-
 // Validar horario
 function validarHora() {
-
     ocultarMensaje();
-
     if (!inputFecha.value || !inputHora.value) {
         return true;
     }
-
-    const fecha =
-        new Date(inputFecha.value + "T00:00:00");
+    const fecha = new Date(inputFecha.value + "T00:00:00");
 
     const diaSemana = fecha.getDay();
-
-    const partesHora =
-        inputHora.value.split(":");
+    const partesHora = inputHora.value.split(":");
 
     const horas = Number(partesHora[0]);
     const minutos = Number(partesHora[1]);
 
-    const hora =
-        horas + minutos / 60;
-
+    const hora =  horas + minutos / 60;
 
     // Domingo
     if (diaSemana === 0) {
-
         mostrarMensaje(
             "La clínica no atiende los domingos."
         );
@@ -145,11 +122,9 @@ function validarHora() {
             );
 
             inputHora.value = "";
-
             return false;
         }
     }
-
 
     // Lunes a viernes
     else {
@@ -165,17 +140,12 @@ function validarHora() {
             return false;
         }
     }
-
     return true;
 }
-
-
 // Función que usa el formulario antes de enviar
 function horarioValido() {
-
     if (!inputFecha.value || !inputHora.value) {
         return true;
     }
-
     return validarHora();
 }

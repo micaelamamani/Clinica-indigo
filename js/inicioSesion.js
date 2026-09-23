@@ -38,7 +38,7 @@ formulario.addEventListener("submit", async function (event) {
 
             console.log("ID DEL PACIENTE GUARDADO:", resultado.id_paciente);
 
-            window.location.href = "../Cliente/inicioPaciente.html";
+            window.location.href = "../Cliente/index.html";
         }
     } catch (error) {
         console.error("Error:", error);

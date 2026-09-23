@@ -798,6 +798,9 @@
     box-shadow:
         0 5px 20px rgba(41,78,125,0.06);
 }
+#mensajeHistoria{
+    color: #853131;
+}
 /* basicamente, puedo hacer un reporte de cualquier cosa, puede ser del doctor, cuantos pacientes atendio este dia o mes, o que el paciente pida o se este por hacer un analisis, o q tmb pueda pedir un papel para imprimir su ultima consulta, etc, pero q no se repita llas mismas cosas ya q seria repetitivo ver lo mismo o un historial.. 
 doctor: inicio algo problematico con 4 tarjetas, las dos primeras bien pero las otras dos no pq seria algo q despues puede hacer pq primero es la consulta, que ponga atendido el doctor y q se rediriga a un formulario para registrar la consulta estaria masomenos bien, pero despues ponga otro boton de +recetar medicamento, seria algo raro pq se va amontonando, no se como podriamos hacer eso
 al soicitar un turno---> solo darle a elegir los horarios disponibles de la clinica y bloquear aquellos dias que no se pueda atender, y para mi depende mucho tambien la disponibilidad del doctor, es decir, fijarnos en la tabla turnos del doctor que elije para saber si en esa hora y fecha (mismo dia) esta ocupado o no */

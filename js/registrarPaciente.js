@@ -21,16 +21,18 @@ formulario.addEventListener("submit", async function (event) {
         });
         const resultado = await respuesta.json();
         if (!respuesta.ok) {
-            alert(resultado.mensaje);
+            //alert(resultado.mensaje);
+            mensajeRegistro.textContent = resultado.mensaje;
+            mensajeRegistro.style.color = "red";
             return;
         }
         // Guardamos los datos necesarios para mostrar el usuario
         localStorage.setItem("usuario", resultado.usuario);
         localStorage.setItem("nombrePaciente", resultado.nombre);
 
-        alert("¡Registro exitoso!");
+       // alert("¡Registro exitoso!");
 
-        window.location.href = "inicioPaciente.html";
+        window.location.href = "index.html";
 
     } catch (error) {
         console.error("Error:", error);

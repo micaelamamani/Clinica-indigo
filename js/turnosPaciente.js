@@ -1,16 +1,11 @@
 const formularioTurno = document.getElementById("turnoForm");
 const selectDoctor = document.getElementById("doctor");
 const tablaTurnos = document.getElementById("tablaTurnos");
-
-
 function mostrarProximoTurno(turnos) {
-
     const fechaElemento =
         document.getElementById("fechaProximoTurno");
-
     const horaElemento =
         document.getElementById("horaProximoTurno");
-
     const doctorElemento =
         document.getElementById("doctorProximoTurno");
 
@@ -19,12 +14,9 @@ function mostrarProximoTurno(turnos) {
 
     const estadoElemento =
         document.getElementById("estadoProximoTurno");
-
-
     // =========================================
     // OBTENER FECHA Y HORA DEL TURNO
     // =========================================
-
     function obtenerFechaTurno(turno) {
 
         const fecha = new Date(turno.fecha);
@@ -40,38 +32,26 @@ function mostrarProximoTurno(turnos) {
 
         return fecha;
     }
-
-
     // =========================================
     // FILTRAR TURNOS FUTUROS
     // =========================================
-
     const ahora = new Date();
-
     const turnosFuturos = turnos.filter(turno => {
-
         const fechaTurno =
             obtenerFechaTurno(turno);
-
         return fechaTurno >= ahora &&
             turno.estado !== "Cancelado" &&
             turno.estado !== "Atendido";
 
     });
-
-
     // =========================================
     // NO HAY PRÓXIMOS TURNOS
     // =========================================
-
     if (turnosFuturos.length === 0) {
-
         fechaElemento.textContent =
             "No tenés próximos turnos";
-
         horaElemento.textContent =
             "";
-
         doctorElemento.textContent =
             "-";
 
@@ -86,31 +66,20 @@ function mostrarProximoTurno(turnos) {
 
         return;
     }
-
-
     // =========================================
     // ORDENAR POR FECHA
     // =========================================
-
     turnosFuturos.sort((a, b) => {
-
         return obtenerFechaTurno(a) -
             obtenerFechaTurno(b);
-
     });
-
-
     // =========================================
     // TOMAR EL PRÓXIMO
     // =========================================
-
     const turno = turnosFuturos[0];
-
-
     // =========================================
     // FECHA
     // =========================================
-
     const fecha =
         new Date(turno.fecha);
 
@@ -120,12 +89,8 @@ function mostrarProximoTurno(turnos) {
             day: "numeric",
             month: "long"
         });
-
-
     fechaElemento.textContent =
         fechaFormateada;
-
-
     // =========================================
     // HORA
     // =========================================
@@ -144,15 +109,11 @@ function mostrarProximoTurno(turnos) {
     doctorElemento.textContent =
         `Dr./Dra. ${turno.nombre_doctor} ${turno.apellido_doctor}`;
 
-
     // =========================================
     // ESPECIALIDAD
     // =========================================
-
     especialidadElemento.textContent =
         turno.especialidad;
-
-
     // =========================================
     // ESTADO
     // =========================================
@@ -307,68 +268,33 @@ formularioTurno.addEventListener(
 
 
             if (!respuesta.ok) {
-
-                alert(
-                    resultado.mensaje
-                );
-
+                alert(resultado.mensaje);
                 return;
             }
-
-
-            alert(
-                "Turno solicitado correctamente."
-            );
-
-
+           // alert("Turno solicitado correctamente.");
             formularioTurno.reset();
-
-
             cargarTurnosPaciente();
-
-
         } catch (error) {
-
-            console.error(
-                "Error al solicitar turno:",
-                error
-            );
-
-            alert(
-                "No se pudo conectar con el servidor."
-            );
-
+            console.error("Error al solicitar turno:",error);
+            alert("No se pudo conectar con el servidor.");
         }
-
     }
 );
-
-
 // =========================================
 // HISTORIAL DE TURNOS
 // =========================================
-
 async function cargarTurnosPaciente() {
 
     const idPaciente =
         localStorage.getItem("idPaciente");
-
-
     if (!idPaciente) {
-
         return;
-
     }
-
-
     try {
-
         const respuesta =
             await fetch(
                 `http://localhost:3000/turnos/paciente/${idPaciente}`
             );
-
-
         if (!respuesta.ok) {
 
             throw new Error(
@@ -376,29 +302,16 @@ async function cargarTurnosPaciente() {
             );
 
         }
-
-
         const turnos =
             await respuesta.json();
-
-
         mostrarProximoTurno(turnos);
-
-
         if (!tablaTurnos) {
-
             return;
-
         }
-
-
         tablaTurnos.innerHTML = "";
-
-
         // =========================================
         // NO HAY TURNOS
         // =========================================
-
         if (turnos.length === 0) {
 
             tablaTurnos.innerHTML = `
@@ -408,33 +321,18 @@ async function cargarTurnosPaciente() {
                     </td>
                 </tr>
             `;
-
             return;
-
         }
-
-
         // =========================================
         // MOSTRAR TURNOS
         // =========================================
-
         turnos.forEach(turno => {
-
             const fila =
                 document.createElement("tr");
-
-
             const fecha =
                 new Date(turno.fecha)
                     .toLocaleDateString("es-AR");
-
-
-            const hora =
-                turno.hora
-                    .toString()
-                    .substring(0, 5);
-
-
+            const hora =turno.hora.toString().substring(0, 5);
             fila.innerHTML = `
                 <td>${fecha}</td>
 
@@ -454,56 +352,29 @@ async function cargarTurnosPaciente() {
                     </span>
                 </td>
             `;
-
-
             tablaTurnos.appendChild(fila);
-
         });
-
-
     } catch (error) {
-
         console.error(
             "Error al cargar turnos:",
             error
         );
-
     }
-
 }
-
-
 // =========================================
 // ESTADO DEL TURNO
 // =========================================
-
 function obtenerClaseEstado(estado) {
-
     if (estado === "Confirmado") {
-
         return "confirmado";
-
     }
-
-
     if (estado === "Cancelado") {
-
         return "cancelado";
-
     }
-
-
     if (estado === "Atendido") {
-
         return "realizado";
-
     }
-
-
     return "pendiente";
-
 }
-
-
 cargarDoctores();
 cargarTurnosPaciente();
