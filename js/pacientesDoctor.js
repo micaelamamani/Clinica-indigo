@@ -101,9 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "pacienteSeleccionado",
             idPaciente
         );
-        window.location.href =
-            `historialDoctor.html?id_paciente=${idPaciente}`;
 
+        window.location.href =
+            "historialDoctor.html";
     };
     cargarPacientes();
 });

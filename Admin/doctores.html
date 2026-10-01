@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
-    <title>Clínica Índigo | Pacientes</title>
+    <title>Clínica Índigo | Historias Clínicas</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../estilos/estiloGeneral.css">
     <link rel="stylesheet" href="../estilos/estiloAdmin.css">
 </head>
 
 <body>
-    <!-- MENÚ SUPERIOR (Igual a inicioAdmin) -->
     <header class="navbar">
         <a href="inicioAdmin.html" class="logo">
             <div class="logo-name"><img src="../img/logoIndigo.png" alt=""></div>
@@ -20,66 +19,103 @@
         <nav class="menu">
             <span class="menu-indicator"></span>
             <a href="inicioAdmin.html" class="menu-item"><i data-lucide="house"></i><span>Inicio</span></a>
-            <a href="pacientes.html" class="menu-item active"><i data-lucide="user-round"></i><span>Pacientes</span></a>
+            <a href="pacientes.html" class="menu-item"><i data-lucide="user-round"></i><span>Pacientes</span></a>
             <a href="turnos.html" class="menu-item"><i data-lucide="calendar-days"></i><span>Turnos médicos</span></a>
             <a href="historias.html" class="menu-item"><i data-lucide="clipboard-list"></i><span>Historias
                     clínicas</span></a>
-            <a href="medicamentos.html" class="menu-item"><i data-lucide="pill"></i><span>Medicamentos</span>
-                <a href="doctores.html" class="menu-item">
-                    <i data-lucide="stethoscope"></i>
-                    <span>Doctores</span>
-                </a>
-                <a href="reportes.html" class="menu-item"><i data-lucide="info"></i><span>Reportes</span></a>
+            <a href="medicamentos.html" class="menu-item"><i data-lucide="pill"></i><span>Medicamentos</span></a>
+            <a href="doctores.html" class="menu-item active">
+                <i data-lucide="stethoscope"></i>
+                <span>Doctores</span>
+            </a>
+            <a href="reportes.html" class="menu-item"><i data-lucide="info"></i><span>Reportes</span></a>
         </nav>
         <div class="admin">
             <div class="admin-icon"><i data-lucide="user-round"></i></div>
             <a id="user" href="../Cliente/inicioSesion.html">Admin</a>
         </div>
     </header>
-
     <main>
+
         <section class="welcome">
+
             <div class="header-seccion">
+
                 <div>
-                    <h1>Pacientes</h1>
+
+                    <h1>Doctores</h1>
+
                 </div>
+
+
                 <div class="acciones-top">
-                    <input type="text" id="buscarPaciente" class="search-input" placeholder="Buscar paciente">
-                    <button id="btnBuscarPaciente" class="btn-primary" type="button">
+
+                    <input type="text" id="buscarDoctor" class="search-input" placeholder="Buscar doctor">
+
+                    <button id="btnBuscarDoctor" class="btn-primary" type="button">
                         <i data-lucide="search"></i>
                         Buscar
                     </button>
-                    <button id="btnAgregarPaciente" class="btn-primary" type="button">
+
+                    <button id="btnAgregarDoctor" class="btn-primary" type="button">
                         <i data-lucide="plus"></i>
-                        Agregar paciente
+                        Agregar doctor
                     </button>
+
                 </div>
+
             </div>
 
+
             <div class="table-container">
+
                 <table>
+
                     <thead>
+
                         <tr>
+
                             <th>ID</th>
-                            <th>Nombre</th>
-                            <th>DNI</th>
-                            <th>Fecha de nacimiento</th>
+
+                            <th>Doctor</th>
+
+                            <th>Especialidad</th>
+
+                            <th>Matrícula</th>
+
+                            <th>Teléfono</th>
+
+                            <th>Correo</th>
+
                             <th>Acciones</th>
+
                         </tr>
+
                     </thead>
-                    <tbody id="tablaPacientes">
-                        <!-- Fila vacía para rellenar con la base de datos -->
+
+
+                    <tbody id="tablaDoctores">
+
                         <tr>
-                            <td colspan="5" class="text-center">No hay pacientes registrados de forma activa.</td>
+
+                            <td colspan="7" class="text-center">
+                                No hay doctores registrados.
+                            </td>
+
                         </tr>
+
                     </tbody>
+
                 </table>
+
             </div>
+
         </section>
+
     </main>
     <script>lucide.createIcons();</script>
     <script src="../indicadorMenu.js"></script>
-    <script src="../js/pacientes.js"></script>
+    <script src="../js/doctoresAdmin.js"></script>
 </body>
 
 </html>

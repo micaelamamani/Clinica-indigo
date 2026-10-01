@@ -37,20 +37,20 @@ async function cargarPaciente() {
             "nombrePaciente"
         ).textContent =
             nombreCompleto;
-        document.getElementById("dniPaciente").textContent =`DNI: ${paciente.dni}`;
-        document.getElementById("nombreCompleto").textContent =nombreCompleto;
-        document.getElementById("dni").textContent =paciente.dni;
+        document.getElementById("dniPaciente").textContent = `DNI: ${paciente.dni}`;
+        document.getElementById("nombreCompleto").textContent = nombreCompleto;
+        document.getElementById("dni").textContent = paciente.dni;
         if (paciente.fecha_nacimiento) {
-            const fecha =paciente.fecha_nacimiento.toString().split("T")[0].split("-");
+            const fecha = paciente.fecha_nacimiento.toString().split("T")[0].split("-");
 
             document.getElementById(
                 "fechaNacimiento"
             ).textContent =
                 `${fecha[2]}/${fecha[1]}/${fecha[0]}`;
         }
-        document.getElementById("ciudad").textContent =paciente.ciudad || "-";
+        document.getElementById("ciudad").textContent = paciente.ciudad || "-";
     } catch (error) {
-        console.error("Error al cargar paciente:",error);
+        console.error("Error al cargar paciente:", error);
     }
 }
 // CARGAR CONSULTAS
@@ -60,10 +60,10 @@ async function cargarConsultas() {
         if (!respuesta.ok) {
             throw new Error("No se pudieron obtener las consultas.");
         }
-        const consultas =await respuesta.json();
+        const consultas = await respuesta.json();
         mostrarConsultas(consultas);
     } catch (error) {
-        console.error("Error al cargar consultas:",error);
+        console.error("Error al cargar consultas:", error);
         contenedorConsultas.innerHTML = `
             <p>
                 No se pudieron cargar las consultas.
@@ -83,10 +83,10 @@ function mostrarConsultas(consultas) {
         return;
     }
     consultas.forEach(consulta => {
-        const tarjeta =document.createElement("div");
+        const tarjeta = document.createElement("div");
         tarjeta.className = "consulta-card";
-        const fecha =new Date(consulta.fecha_consulta);
-        const fechaFormateada =fecha.toLocaleDateString("es-AR" );
+        const fecha = new Date(consulta.fecha_consulta);
+        const fechaFormateada = fecha.toLocaleDateString("es-AR");
 
         tarjeta.innerHTML = `
             <div class="consulta-header">
@@ -106,35 +106,61 @@ function mostrarConsultas(consultas) {
             </div>
             <div class="consulta-contenido">
 
-                <div>
-                    <strong>
-                        Motivo
-                    </strong>
+    <div>
+        <strong>
+            Motivo
+        </strong>
 
-                    <p>
-                        ${consulta.motivo}
-                    </p>
-                </div>
-                <div>
-                    <strong>
-                        Diagnóstico
-                    </strong>
-                    <p>
-                        ${consulta.diagnostico}
-                    </p>
-                </div>
-                <div>
-                    <strong>
-                        Observaciones
-                    </strong>
-                    <p>
-                        ${consulta.observaciones || "Sin observaciones."}
-                    </p>
-                </div>
+        <p>
+            ${consulta.motivo}
+        </p>
+    </div>
 
-            </div>
+    <div>
+        <strong>
+            Diagnóstico
+        </strong>
+
+        <p>
+            ${consulta.diagnostico}
+        </p>
+    </div>
+
+    <div>
+        <strong>
+            Observaciones
+        </strong>
+
+        <p>
+            ${consulta.observaciones || "Sin observaciones."}
+        </p>
+    </div>
+
+    <div class="consulta-medicacion">
+        <strong>
+            <i data-lucide="pill"></i>
+            Medicación indicada
+        </strong>
+
+        <p>
+            ${consulta.medicamento || "No se indicó medicación."}
+        </p>
+    </div>
+
+</div>
         `;
         contenedorConsultas.appendChild(tarjeta);
     });
 
 }
+document.getElementById(
+    "btnMedicamentos"
+).addEventListener(
+    "click",
+    function () {
+
+        window.location.href =
+            `medicamentosPaciente.html?id_paciente=${idPaciente}`;
+
+    }
+);

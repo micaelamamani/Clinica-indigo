@@ -1,53 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
+
     <title>Clínica Índigo | Turnos Médicos</title>
+
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <link rel="stylesheet" href="../estilos/estiloGeneral.css">
     <link rel="stylesheet" href="../estilos/estiloAdmin.css">
 </head>
+
 <body>
+
     <header class="navbar">
+
         <a href="inicioAdmin.html" class="logo">
-            <div class="logo-name"><img src="../img/logoIndigo.png" alt=""></div>
+            <div class="logo-name">
+                <img src="../img/logoIndigo.png" alt="">
+            </div>
         </a>
+
         <nav class="menu">
+
             <span class="menu-indicator"></span>
-            <span class="menu-indicator"></span>
-            <a href="inicioAdmin.html" class="menu-item"><i data-lucide="house"></i><span>Inicio</span></a>
-            <a href="pacientes.html" class="menu-item"><i data-lucide="user-round"></i><span>Pacientes</span></a>
-            <a href="turnos.html" class="menu-item active"><i data-lucide="calendar-days"></i><span>Turnos
-                    médicos</span></a>
-            <a href="historias.html" class="menu-item"><i data-lucide="clipboard-list"></i><span>Historias
-                    clínicas</span></a>
-            <a href="medicamentos.html" class="menu-item"><i data-lucide="pill"></i><span>Medicamentos</span></a>
-            <a href="reportes.html" class="menu-item"><i data-lucide="info"></i><span>Reportes</span></a>
+
+            <a href="inicioAdmin.html" class="menu-item">
+                <i data-lucide="house"></i>
+                <span>Inicio</span>
+            </a>
+
+            <a href="pacientes.html" class="menu-item">
+                <i data-lucide="user-round"></i>
+                <span>Pacientes</span>
+            </a>
+
+            <a href="turnos.html" class="menu-item active">
+                <i data-lucide="calendar-days"></i>
+                <span>Turnos médicos</span>
+            </a>
+
+            <a href="historias.html" class="menu-item">
+                <i data-lucide="clipboard-list"></i>
+                <span>Historias clínicas</span>
+            </a>
+
+            <a href="medicamentos.html" class="menu-item">
+                <i data-lucide="pill"></i>
+                <span>Medicamentos</span>
+            </a>
+            <a href="doctores.html" class="menu-item">
+                <i data-lucide="stethoscope"></i>
+                <span>Doctores</span>
+            </a>
+            <a href="reportes.html" class="menu-item">
+                <i data-lucide="info"></i>
+                <span>Reportes</span>
+            </a>
         </nav>
         <div class="admin">
-            <div class="admin-icon"><i data-lucide="user-round"></i></div>
-            <a id="user" href="../Cliente/inicioSesion.html">Admin</a>
+            <div class="admin-icon">
+                <i data-lucide="user-round"></i>
+            </div>
+            <a id="user" href="../Cliente/inicioSesion.html">
+                Admin
+            </a>
         </div>
     </header>
     <main>
         <section class="admin-section">
             <div class="header-seccion">
                 <h1>Turnos médicos</h1>
-                <div class="acciones-top flex-wrap">
-                    <input type="text" class="search-input" placeholder="🔍 Buscar turno...">
-                    <input type="date" class="search-input">
-                    <select class="search-input">
-                        <option value="">Todos los estados</option>
-                        <option value="confirmado">Confirmado</option>
-                        <option value="pendiente">Pendiente</option>
-                        <option value="cancelado">Cancelado</option>
-                    </select>
-                    <button class="btn-primary"><i data-lucide="plus"></i> Nuevo turno</button>
+                <div class="acciones-top">
+                    <input type="text" id="buscarTurno" class="search-input" placeholder="Buscar">
+                    <button id="btnBuscarTurno" class="btn-primary" type="button">
+                        <i data-lucide="search"></i>
+                        Buscar
+                    </button>
+
                 </div>
             </div>
+            <p id="mensajeTurno"></p>
             <div class="table-container">
+
                 <table>
                     <thead>
                         <tr>
@@ -73,6 +112,9 @@
     </main>
     <script src="../indicadorMenu.js"></script>
     <script src="../js/turnosAdmin.js"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
+
 </html>

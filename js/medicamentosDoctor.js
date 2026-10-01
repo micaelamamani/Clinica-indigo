@@ -191,9 +191,11 @@ function calcularDuracion(fechaInicio, fechaFin) {
 // =========================================
 
 function mostrarMedicamentos(medicamentos) {
+tablaMedicamentos.innerHTML = "";
 
-    tablaMedicamentos.innerHTML = "";
-
+    medicamentos = medicamentos.filter(function (medicamento) {
+        return medicamento.id_medicamento !== null;
+    });
 
     if (medicamentos.length === 0) {
 

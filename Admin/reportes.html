@@ -38,12 +38,11 @@
                 <i data-lucide="clipboard-list"></i>
                 <span>Historias clínicas</span>
             </a>
-
-            <a href="medicamentos.html" class="menu-item">
-                <i data-lucide="pill"></i>
-                <span>Medicamentos</span>
+            <a href="medicamentos.html" class="menu-item"><i data-lucide="pill"></i><span>Medicamentos</span></a>
+            <a href="doctores.html" class="menu-item">
+                <i data-lucide="stethoscope"></i>
+                <span>Doctores</span>
             </a>
-
             <a href="reportes.html" class="menu-item active">
                 <i data-lucide="info"></i>
                 <span>Reportes</span>
@@ -83,6 +82,17 @@
                         Hasta
                     </label>
                     <input type="date" id="fechaHasta">
+                </div>
+                <div class="campo-fecha">
+                    <label for="filtroDoctor">
+                        Médico
+                    </label>
+
+                    <input type="text" id="filtroDoctor" list="opcionesDoctores" placeholder="Buscar médico...">
+
+                    <datalist id="opcionesDoctores">
+                        <option value="Todos los médicos"></option>
+                    </datalist>
                 </div>
                 <button class="btn-principal btn-generar" id="btnGenerar">
                     <i data-lucide="file-chart-column"></i>
@@ -186,4 +196,5 @@
     <script src="../indicadorMenu.js"></script>
     <script src="../js/reporteTurnos.js"></script>
 </body>
+
 </html>

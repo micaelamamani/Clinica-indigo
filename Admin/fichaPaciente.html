@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../img/iconindigo.png" type="image/png">
+    <title>Clínica Índigo | Pacientes</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="../estilos/estiloGeneral.css">
+    <link rel="stylesheet" href="../estilos/estiloAdmin.css">
+</head>
+
+<body>
+    <!-- MENÚ SUPERIOR (Igual a inicioAdmin) -->
+    <header class="navbar">
+        <a href="inicioAdmin.html" class="logo">
+            <div class="logo-name"><img src="../img/logoIndigo.png" alt=""></div>
+        </a>
+        <nav class="menu">
+            <span class="menu-indicator"></span>
+            <a href="inicioAdmin.html" class="menu-item"><i data-lucide="house"></i><span>Inicio</span></a>
+            <a href="pacientes.html" class="menu-item active"><i data-lucide="user-round"></i><span>Pacientes</span></a>
+            <a href="turnos.html" class="menu-item"><i data-lucide="calendar-days"></i><span>Turnos médicos</span></a>
+            <a href="historias.html" class="menu-item"><i data-lucide="clipboard-list"></i><span>Historias
+                    clínicas</span></a>
+            <a href="reportes.html" class="menu-item"><i data-lucide="info"></i><span>Reportes</span></a>
+        </nav>
+        <div class="admin">
+            <div class="admin-icon"><i data-lucide="user-round"></i></div>
+            <a id="user" href="../Cliente/inicioSesion.html">Admin</a>
+        </div>
+    </header>
+    <main>
+        <section class="welcome">
+            <!-- ENCABEZADO -->
+            <div class="header-seccion">
+                <div>
+                    <span class="small-title">
+                        FICHA DEL PACIENTE
+                    </span>
+                    <h1 id="nombrePaciente">
+                        Cargando...
+                    </h1>
+                    <p id="dniPaciente">
+                        DNI: -
+                    </p>
+                </div>
+                <button id="btnVolver" class="btn-primary" type="button">
+                    Volver a pacientes
+                </button>
+            </div>
+            <!-- DATOS PERSONALES -->
+            <section class="ficha-bloque">
+                <div class="box-title">
+                    <i data-lucide="user-round"></i>
+                    <h2>Datos personales</h2>
+                </div>
+                <div class="historia-datos">
+                    <div class="dato-historia">
+                        <span>Nombre completo</span>
+                        <strong id="nombreCompleto">
+                            -
+                        </strong>
+                    </div>
+                    <div class="dato-historia">
+                        <span>DNI</span>
+                        <strong id="dni">
+                            -
+                        </strong>
+                    </div>
+                    <div class="dato-historia">
+                        <span>Fecha de nacimiento</span>
+                        <strong id="fechaNacimiento">
+                            -
+                        </strong>
+                    </div>
+                    <div class="dato-historia">
+                        <span>Teléfono</span>
+                        <strong id="telefono">
+                            -
+                        </strong>
+                    </div>
+                    <div class="dato-historia">
+                        <span>Correo</span>
+                        <strong id="correo">
+                            -
+                        </strong>
+                    </div>
+                    <div class="dato-historia">
+                        <span>Dirección</span>
+                        <strong id="direccion">
+                            -
+                        </strong>
+                    </div>
+                    <div class="dato-historia">
+                        <span>Ciudad</span>
+                        <strong id="ciudad">
+                            -
+                        </strong>
+                    </div>
+                    <div class="dato-historia">
+                        <span>Usuario</span>
+                        <strong id="usuario">
+                            -
+                        </strong>
+                    </div>
+                </div>
+            </section>
+            <section class="ficha-resumen">
+                <!-- ÚLTIMA CONSULTA -->
+                <div class="ficha-bloque">
+                    <div class="box-title">
+                        <i data-lucide="stethoscope"></i>
+                        <h2>Última consulta</h2>
+                    </div>
+                    <div id="ultimaConsulta">
+                        <p>Cargando información...</p>
+                    </div>
+                </div>
+                <!-- MÉDICO FRECUENTE Y MEDICAMENTOS -->
+                <div>
+                    <!-- MÉDICO FRECUENTE -->
+                    <section class="ficha-bloque">
+                        <div class="box-title">
+                            <i data-lucide="user-round"></i>
+                            <h2>Médico frecuente</h2>
+                        </div>
+                        <div id="medicoFrecuente">
+                            <p>
+                                Cargando información...
+                            </p>
+                        </div>
+                    </section>
+                    <!-- MEDICAMENTOS ACTUALES -->
+                    <section class="ficha-bloque">
+                        <div class="box-title">
+                            <i data-lucide="pill"></i>
+                            <h2>Medicamento actual</h2>
+                        </div>
+                        <div id="medicamentosActuales">
+                            <p>Cargando información...</p>
+                        </div>
+                    </section>
+                </div>
+            </section>
+            <!-- HISTORIA -->
+            <div class="ficha-boton">
+                <button id="btnHistoria" class="btn-primary" type="button">
+                    Ver historia clínica completa
+                </button>
+            </div>
+        </section>
+    </main>
+    <script>lucide.createIcons();</script>
+    <script src="../indicadorMenu.js"></script>
+    <script src="../js/ficha.js"></script>
+</body>
+
+</html>

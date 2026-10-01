@@ -260,10 +260,10 @@ main {
 
 .welcome {
     position: relative;
-    height: 280px;
-    /* padding: 39px 48px; */
+    min-height: 280px;
+    height: auto;
     padding: 39px 48px;
-    overflow: hidden;
+    overflow: visible;
     border-radius: 21px;
     background-image:
         linear-gradient(

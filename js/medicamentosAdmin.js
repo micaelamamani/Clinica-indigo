@@ -33,6 +33,9 @@ async function cargarMedicamentos() {
 
         medicamentos = await respuesta.json();
 
+        crearOpcionesPaciente();
+        crearOpcionesMedicamento();
+
         mostrarMedicamentos(medicamentos);
 
     } catch (error) {
@@ -44,7 +47,7 @@ async function cargarMedicamentos() {
 
         tablaMedicamentos.innerHTML = `
             <tr>
-                <td colspan="6" class="text-center">
+                <td colspan="4" class="text-center">
                     No se pudieron cargar los medicamentos.
                 </td>
             </tr>
@@ -54,18 +57,151 @@ async function cargarMedicamentos() {
 
 
 // ================================
-// MOSTRAR MEDICAMENTOS
+// OPCIONES DE PACIENTES
+// ================================
+
+function crearOpcionesPaciente() {
+
+    let datalist =
+        document.getElementById("opcionesPacientes");
+
+
+    if (!datalist) {
+
+        datalist =
+            document.createElement("datalist");
+
+        datalist.id =
+            "opcionesPacientes";
+
+        document.body.appendChild(datalist);
+    }
+
+
+    datalist.innerHTML = "";
+
+
+    const pacientes = [];
+
+
+    medicamentos.forEach(item => {
+
+        const nombre =
+            `${item.nombre_paciente} ${item.apellido_paciente}`;
+
+
+        if (!pacientes.includes(nombre)) {
+
+            pacientes.push(nombre);
+
+        }
+
+    });
+
+
+    pacientes.sort();
+
+
+    pacientes.forEach(nombre => {
+
+        const opcion =
+            document.createElement("option");
+
+        opcion.value = nombre;
+
+        datalist.appendChild(opcion);
+
+    });
+
+
+    buscarPaciente.setAttribute(
+        "list",
+        "opcionesPacientes"
+    );
+}
+
+
+// ================================
+// OPCIONES DE MEDICAMENTOS
+// ================================
+
+function crearOpcionesMedicamento() {
+
+    let datalist =
+        document.getElementById("opcionesMedicamentos");
+
+
+    if (!datalist) {
+
+        datalist =
+            document.createElement("datalist");
+
+        datalist.id =
+            "opcionesMedicamentos";
+
+        document.body.appendChild(datalist);
+    }
+
+
+    datalist.innerHTML = "";
+
+
+    const medicamentosDisponibles = [];
+
+
+    medicamentos.forEach(item => {
+
+        if (
+            !medicamentosDisponibles.includes(
+                item.medicamento
+            )
+        ) {
+
+            medicamentosDisponibles.push(
+                item.medicamento
+            );
+
+        }
+
+    });
+
+
+    medicamentosDisponibles.sort();
+
+
+    medicamentosDisponibles.forEach(nombre => {
+
+        const opcion =
+            document.createElement("option");
+
+        opcion.value = nombre;
+
+        datalist.appendChild(opcion);
+
+    });
+
+
+    buscarMedicamento.setAttribute(
+        "list",
+        "opcionesMedicamentos"
+    );
+}
+
+
+// ================================
+// MOSTRAR PACIENTES
 // ================================
 
 function mostrarMedicamentos(lista) {
 
     tablaMedicamentos.innerHTML = "";
 
+
     if (lista.length === 0) {
 
         tablaMedicamentos.innerHTML = `
             <tr>
-                <td colspan="6" class="text-center">
+                <td colspan="4" class="text-center">
                     No se encontraron medicamentos.
                 </td>
             </tr>
@@ -75,67 +211,82 @@ function mostrarMedicamentos(lista) {
     }
 
 
+    // AGRUPAR MEDICAMENTOS POR PACIENTE
+
+    const pacientes = [];
+
+
     lista.forEach(medicamento => {
+
+        const pacienteExistente =
+            pacientes.find(
+                paciente =>
+                    paciente.id_paciente ===
+                    medicamento.id_paciente
+            );
+
+
+        if (pacienteExistente) {
+
+            pacienteExistente.cantidad++;
+
+        } else {
+
+            pacientes.push({
+
+                id_paciente:
+                    medicamento.id_paciente,
+
+                nombre:
+                    medicamento.nombre_paciente,
+
+                apellido:
+                    medicamento.apellido_paciente,
+
+                dni:
+                    medicamento.dni,
+
+                cantidad: 1
+
+            });
+
+        }
+
+    });
+
+
+    // MOSTRAR UNA FILA POR PACIENTE
+
+    pacientes.forEach(paciente => {
 
         const fila =
             document.createElement("tr");
 
 
-        let fechaInicio = "-";
-        let fechaFin = "-";
-
-
-        if (medicamento.fecha_inicio) {
-
-            const fecha =
-                medicamento.fecha_inicio
-                    .toString()
-                    .split("T")[0]
-                    .split("-");
-
-            fechaInicio =
-                `${fecha[2]}/${fecha[1]}/${fecha[0]}`;
-        }
-
-
-        if (medicamento.fecha_fin) {
-
-            const fecha =
-                medicamento.fecha_fin
-                    .toString()
-                    .split("T")[0]
-                    .split("-");
-
-            fechaFin =
-                `${fecha[2]}/${fecha[1]}/${fecha[0]}`;
-        }
-
-
         fila.innerHTML = `
 
             <td>
-                ${medicamento.nombre_paciente}
-                ${medicamento.apellido_paciente}
+                ${paciente.nombre}
+                ${paciente.apellido}
             </td>
 
             <td>
-                ${medicamento.medicamento}
+                ${paciente.dni || "-"}
             </td>
 
             <td>
-                ${medicamento.frecuencia}
+                ${paciente.cantidad}
             </td>
 
             <td>
-                ${fechaInicio}
-            </td>
 
-            <td>
-                ${fechaFin}
-            </td>
+                <button
+                    class="btn-tabla"
+                    onclick="verMedicamentos(${paciente.id_paciente})"
+                >
+                    Ver medicamentos
+                </button>
 
-            <td>
-                ${medicamento.motivo || "-"}
             </td>
 
         `;
@@ -152,24 +303,95 @@ function mostrarMedicamentos(lista) {
 // BUSCAR
 // ================================
 
-btnBuscar.addEventListener("click", function () {
+function buscarMedicamentos() {
 
     const paciente =
         buscarPaciente.value
             .toLowerCase()
             .trim();
 
+
     const medicamento =
-        buscarMedicamento.value.toLowerCase().trim();
-    const resultados =medicamentos.filter(item => {
-            const nombrePaciente =`${item.nombre_paciente} ${item.apellido_paciente}`.toLowerCase();
-            const nombreMedicamento =item.medicamento.toLowerCase();
-            const coincidePaciente =nombrePaciente.includes(paciente);
-            const coincideMedicamento =nombreMedicamento.includes(medicamento);
-            return (coincidePaciente &&coincideMedicamento);
+        buscarMedicamento.value
+            .toLowerCase()
+            .trim();
+
+
+    const resultados =
+        medicamentos.filter(item => {
+
+            const nombrePaciente =
+                `${item.nombre_paciente} ${item.apellido_paciente}`
+                    .toLowerCase();
+
+
+            const nombreMedicamento =
+                item.medicamento
+                    .toLowerCase();
+
+
+            const coincidePaciente =
+                nombrePaciente.includes(
+                    paciente
+                );
+
+
+            const coincideMedicamento =
+                nombreMedicamento.includes(
+                    medicamento
+                );
+
+
+            return (
+                coincidePaciente &&
+                coincideMedicamento
+            );
+
         });
+
+
     mostrarMedicamentos(resultados);
-});
+}
+
+
+// ================================
+// BUSCAR MIENTRAS ESCRIBE
+// ================================
+
+buscarPaciente.addEventListener(
+    "input",
+    buscarMedicamentos
+);
+
+
+buscarMedicamento.addEventListener(
+    "input",
+    buscarMedicamentos
+);
+
+
+// ================================
+// BOTÓN BUSCAR
+// ================================
+
+btnBuscar.addEventListener(
+    "click",
+    buscarMedicamentos
+);
+
+
+// ================================
+// VER MEDICAMENTOS DEL PACIENTE
+// ================================
+
+function verMedicamentos(idPaciente) {
+
+    window.location.href =
+        `medicamentosPaciente.html?id_paciente=${idPaciente}`;
+
+}
+
+
 // ================================
 // CARGAR AL ENTRAR
 // ================================

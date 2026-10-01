@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="../estilos/inicioSesion.css">
     <link rel="stylesheet" href="../estilos/inicioPaciente.css">
 </head>
+
 <body>
     <div class="top-info">
         <span>
@@ -38,7 +40,7 @@
             <div class="login-content registro-content">
                 <h1>Registrar médico</h1>
                 <form id="doctorForm">
-                    <!-- NOMBRE Y APELLIDO -->
+                    <!-- NOMBRE, APELLIDO Y GÉNERO -->
                     <div class="registro-row">
                         <div class="login-field">
                             <label for="nombre">
@@ -49,6 +51,7 @@
                                 <input type="text" id="nombre" name="nombre" required>
                             </div>
                         </div>
+
                         <div class="login-field">
                             <label for="apellido">
                                 Apellido
@@ -57,6 +60,20 @@
                                 <i data-lucide="user-round"></i>
                                 <input type="text" id="apellido" name="apellido" required>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="login-field">
+                        <label for="genero">
+                            Género
+                        </label>
+
+                        <div class="input-container">
+                            <select id="genero" name="genero" required>
+                                <option value="">Seleccionar género</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                            </select>
                         </div>
                     </div>
                     <!-- ESPECIALIDAD Y MATRÍCULA -->
@@ -100,9 +117,7 @@
                             <input type="password" id="password" name="password" required>
                         </div>
                     </div>
-                    <button
-                        type="submit"
-                        class="btn-login">
+                    <button type="submit" class="btn-login">
                         Registrar médico
                     </button>
                 </form>
@@ -119,4 +134,5 @@
         lucide.createIcons();
     </script>
 </body>
+
 </html>

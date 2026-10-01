@@ -621,3 +621,225 @@ select.search-input:focus {
     width: 17px;
     height: 17px;
 }
+.welcome {
+    width: 100%;
+    box-sizing: border-box;
+}
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+/* FICHA DEL PACIENTE */
+
+.ficha-bloque {
+    background: white;
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ficha-resumen {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.ficha-bloque .box-title {
+    margin-bottom: 20px;
+}
+
+.ficha-bloque .box-title h2 {
+    margin: 0;
+}
+
+.resumen-dato {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 16px;
+}
+
+.resumen-dato strong {
+    font-size: 14px;
+}
+
+.resumen-dato span {
+    font-size: 15px;
+}
+
+.medico-frecuente h3 {
+    margin: 0 0 6px;
+}
+
+.medico-frecuente p {
+    margin: 0 0 12px;
+}
+
+.medico-frecuente strong {
+    font-size: 14px;
+}
+
+.medicamento-ficha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.medicamento-ficha:last-child {
+    border-bottom: none;
+}
+
+.medicamento-ficha h3 {
+    margin: 0 0 6px;
+}
+
+.medicamento-ficha p {
+    margin: 0;
+}
+
+.medicamento-ficha > div:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.ficha-boton {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    margin-bottom: 30px;
+}
+
+
+@media (max-width: 800px) {
+
+    .ficha-resumen {
+        grid-template-columns: 1fr;
+    }
+
+    .medicamento-ficha {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .medicamento-ficha > div:last-child {
+        align-items: flex-start;
+    }
+}
+.ficha-resumen > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.header-seccion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+#btnMedicamentos {
+    margin-right: 80px;
+}
+/* ================================
+   MEDICAMENTOS DEL PACIENTE
+================================ */
+
+.medicamentos-paciente {
+    margin-top: 30px;
+}
+
+.medicamento-card {
+    background: white;
+    border: 1px solid #e4e4e4;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 18px;
+}
+
+.medicamento-header {
+    margin-bottom: 18px;
+}
+
+.medicamento-header h2 {
+    margin: 0;
+}
+
+.medicamento-header span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #777;
+}
+
+.medicamento-datos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.dato-medicamento {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.dato-medicamento span {
+    font-size: 13px;
+    color: #777;
+}
+
+.dato-medicamento strong {
+    font-size: 15px;
+}
+
+.medicamento-motivo {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid #eeeeee;
+}
+
+.medicamento-motivo span {
+    font-size: 13px;
+    color: #777;
+}
+
+.medicamento-motivo p {
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.volver-medicamentos {
+    margin-top: 25px;
+}
+
+@media (max-width: 700px) {
+
+    .medicamento-datos {
+        grid-template-columns: 1fr;
+    }
+
+}
+#mensajeTurno {
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.mensaje-exito {
+    color: #2e7d32;
+}
+
+.mensaje-error {
+    color: #c62828;
+}
+.btn-deshabilitado {
+    opacity: 0.45;
+    cursor: not-allowed;
+}

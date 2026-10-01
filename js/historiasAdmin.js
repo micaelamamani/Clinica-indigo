@@ -73,13 +73,13 @@ function mostrarHistorias(lista) {
         const fila =
             document.createElement("tr");
 
-        let ultimaActualizacion = "-";
+        let ultimaConsulta = "-";
 
-        if (historia.ultima_actualizacion) {
+        if (historia.ultima_consulta) {
 
-            ultimaActualizacion =
+            ultimaConsulta =
                 new Date(
-                    historia.ultima_actualizacion
+                    historia.ultima_consulta
                 ).toLocaleDateString("es-AR");
         }
 
@@ -94,7 +94,7 @@ function mostrarHistorias(lista) {
             </td>
 
             <td>
-                ${ultimaActualizacion}
+                ${ultimaConsulta}
             </td>
 
             <td>
@@ -108,21 +108,24 @@ function mostrarHistorias(lista) {
                     class="btn-tabla"
                     onclick="verHistoria(${historia.id_paciente})"
                 >
-                    <i data-lucide="eye"></i>
-                    Ver más
+                    Ver historia
                 </button>
             </td>
         `;
 
         tablaHistorias.appendChild(fila);
     });
-
-    lucide.createIcons();
 }
 
 
 // BUSCAR
-btnBuscar.addEventListener("click", function () {
+buscarApellido.addEventListener("input", buscarHistorias);
+buscarDni.addEventListener("input", buscarHistorias);
+
+btnBuscar.addEventListener("click", buscarHistorias);
+
+
+function buscarHistorias() {
 
     const apellido =
         buscarApellido.value
@@ -144,23 +147,16 @@ btnBuscar.addEventListener("click", function () {
 
             const coincideDni =
                 String(historia.dni)
-                    .toLowerCase()
                     .includes(dni);
 
             return coincideApellido && coincideDni;
         });
 
     mostrarHistorias(resultados);
-});
-
-
+}
 // VER HISTORIA COMPLETA
 function verHistoria(idPaciente) {
-
     window.location.href =
         `historialClinico.html?id_paciente=${idPaciente}`;
 }
-
-
-// CARGAR AL ENTRAR
 cargarHistorias();

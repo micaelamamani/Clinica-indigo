@@ -17,6 +17,7 @@ router.get("/", (req, res) => {
             d.usuario AS usuario_doctor,
             d.nombre AS nombre_doctor,
             d.apellido AS apellido_doctor,
+            d.genero AS genero_doctor,
             d.especialidad
 
         FROM Turno t
@@ -76,12 +77,13 @@ router.get("/doctor/:id_doctor", (req, res) => {
 router.get("/doctores", (req, res) => {
 
     const sql = `
-        SELECT
-            id_doctor,
-            nombre,
-            apellido,
-            especialidad
-        FROM Doctor
+        SELECT 
+            id_doctor, 
+            nombre, 
+            apellido, 
+            genero,
+            especialidad 
+        FROM Doctor 
         ORDER BY apellido, nombre
     `;
     db.query(sql, (error, resultados) => {
@@ -137,6 +139,7 @@ router.get("/paciente/:id_paciente", (req, res) => {
             d.id_doctor,
             d.nombre AS nombre_doctor,
             d.apellido AS apellido_doctor,
+            d.genero AS genero_doctor,
             d.especialidad
         FROM Turno t
         INNER JOIN Doctor d
@@ -187,6 +190,7 @@ router.get("/hoy/lista", (req, res) => {
             d.usuario AS usuario_doctor,
             d.nombre AS nombre_doctor,
             d.apellido AS apellido_doctor,
+            d.genero AS genero_doctor,
             d.especialidad
         FROM Turno t
         INNER JOIN Paciente p
@@ -234,6 +238,48 @@ router.put("/:id_turno/estado", (req, res) => {
                 return res.status(404).json({mensaje: "Turno no encontrado."});
             }
             res.json({mensaje: "Estado actualizado correctamente."});
+        }
+    );
+});
+// CANCELAR TURNO
+router.put("/cancelar/:id_turno", (req, res) => {
+
+    const id_turno =
+        req.params.id_turno;
+
+    const sql = `
+        UPDATE Turno
+        SET estado = 'Cancelado'
+        WHERE id_turno = ?
+    `;
+
+    db.query(
+        sql,
+        [id_turno],
+        (error, resultado) => {
+
+            if (error) {
+
+                console.error(
+                    "Error al cancelar turno:",
+                    error
+                );
+
+                return res.status(500).json({
+                    mensaje:
+                        "No se pudo cancelar el turno."
+                });
+            }
+            if (resultado.affectedRows === 0) {
+                return res.status(404).json({
+                    mensaje:
+                        "No se encontró el turno."
+                });
+            }
+            res.json({
+                mensaje:
+                    "Turno cancelado correctamente."
+            });
         }
     );
 });

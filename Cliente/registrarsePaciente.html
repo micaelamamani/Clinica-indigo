@@ -47,6 +47,17 @@
                             </div>
                         </div>
                     </div>
+                    <!-- ====== GÉNERO ====== -->
+                    <div class="login-field">
+                        <label for="genero">Género</label>
+                        <div class="input-container">
+                            <select id="genero" name="genero" required>
+                                <option value="">Seleccionar género</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                            </select>
+                        </div>
+                    </div>
                     <!-- ====== DNI + FECHA DE NACIMIENTO ====== -->
                     <div class="registro-row">
                         <!-- DNI -->
@@ -80,6 +91,21 @@
                             <div class="input-container">
                                 <i data-lucide="building-2"></i>
                                 <input type="text" id="ciudad" name="ciudad">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ====== TELÉFONO Y CORREO ====== -->
+                    <div class="registro-row">
+                        <div class="login-field"> <label for="telefono">Teléfono</label>
+                            <div class="input-container"> <i data-lucide="phone"></i> <input type="tel" id="telefono"
+                                    name="telefono" inputmode="numeric" maxlength="12">
+                            </div>
+                        </div>
+                        <div class="login-field">
+                            <label for="correo">Correo electrónico</label>
+                            <div class="input-container"> <i data-lucide="mail"></i>
+                                <input type="email" id="correo" name="correo" autocomplete="email"
+                                    placeholder="ejemplo@gmail.com">
                             </div>
                         </div>
                     </div>

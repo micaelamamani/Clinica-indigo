@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../estilos/estiloGeneral.css">
     <link rel="stylesheet" href="../estilos/estiloAdmin.css">
 </head>
+
 <body>
     <header class="navbar">
         <a href="inicioAdmin.html" class="logo">
@@ -39,6 +40,10 @@
                 <i data-lucide="pill"></i>
                 <span>Medicamentos</span>
             </a>
+            <a href="doctores.html" class="menu-item">
+                <i data-lucide="stethoscope"></i>
+                <span>Doctores</span>
+            </a>
             <a href="reportes.html" class="menu-item">
                 <i data-lucide="info"></i>
                 <span>Reportes</span>
@@ -60,19 +65,13 @@
                 <div class="acciones-top busqueda-medicamentos">
                     <div class="campo-busqueda">
                         <i data-lucide="user"></i>
-                        <input
-                            type="text"
-                            id="buscarPaciente"
-                            placeholder="Buscar por paciente..."
-                        >
+                        <input type="text" id="buscarPaciente" list="opcionesPacientes"
+                            placeholder="Buscar por paciente...">
                     </div>
                     <div class="campo-busqueda">
                         <i data-lucide="pill"></i>
-                        <input
-                            type="text"
-                            id="buscarMedicamento"
-                            placeholder="Buscar medicamento..."
-                        >
+                        <input type="text" id="buscarMedicamento" list="opcionesMedicamentos"
+                            placeholder="Buscar medicamento...">
                     </div>
                     <button class="btn-principal" id="btnBuscar">
                         <i data-lucide="search"></i>
@@ -84,16 +83,14 @@
                     <thead>
                         <tr>
                             <th>Paciente</th>
-                            <th>Medicamento</th>
-                            <th>Frecuencia</th>
-                            <th>Fecha de inicio</th>
-                            <th>Fecha de fin</th>
-                            <th>Motivo</th>
+                            <th>DNI</th>
+                            <th>Medicamentos</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="tablaMedicamentos">
                         <tr>
-                            <td colspan="6" class="text-center">
+                            <td colspan="4" class="text-center">
                                 Cargando medicamentos...
                             </td>
                         </tr>
@@ -108,4 +105,5 @@
     <script src="../indicadorMenu.js"></script>
     <script src="../js/medicamentosAdmin.js"></script>
 </body>
+
 </html>

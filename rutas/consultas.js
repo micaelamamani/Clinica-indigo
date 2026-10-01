@@ -43,81 +43,6 @@ router.get("/ultimas", (req, res) => {
         res.json(resultados);
     });
 });
-// Obtener historia clínica de un paciente
-router.get("/historial/:id_doctor", (req, res) => {
-
-    const id_doctor = req.params.id_doctor;
-    const apellido = req.query.apellido || "";
-    const dni = req.query.dni || "";
-
-    let sql = `
-        SELECT DISTINCT
-            p.id_paciente,
-            p.nombre,
-            p.apellido,
-            p.dni
-        FROM Paciente p
-        INNER JOIN Turno t
-            ON p.id_paciente = t.id_paciente
-        WHERE t.id_doctor = ?
-    `;
-
-    const valores = [id_doctor];
-
-    if (apellido) {
-        sql += ` AND p.apellido LIKE ?`;
-        valores.push(`%${apellido}%`);
-    }
-
-    if (dni) {
-        sql += ` AND p.dni LIKE ?`;
-        valores.push(`%${dni}%`);
-    }
-    sql += ` ORDER BY p.apellido, p.nombre`;
-    db.query(sql, valores, (error, pacientes) => {
-
-        if (error) {
-            console.error("Error al buscar paciente:", error);
-            return res.status(500).json({
-                mensaje: "Error al buscar el paciente."
-            });
-        }
-        if (pacientes.length === 0) {
-            return res.status(404).json({
-                mensaje: "No se encontró ningún paciente."
-            });
-        }
-        const paciente = pacientes[0];
-        const sqlConsultas = `
-            SELECT
-                c.id_consulta,
-                c.fecha_consulta,
-                c.motivo,
-                c.diagnostico,
-                c.observaciones
-            FROM Consulta c
-            INNER JOIN Turno t
-                ON c.id_turno = t.id_turno
-            WHERE t.id_paciente = ?
-            AND t.id_doctor = ?
-            ORDER BY c.fecha_consulta DESC
-        `;
-        db.query(
-            sqlConsultas,
-            [paciente.id_paciente, id_doctor],
-            (error, consultas) => {
-                if (error) {
-                    console.error("Error al obtener historial:", error);
-                    return res.status(500).json({mensaje: "Error al obtener la historia clínica."});
-                }
-                res.json({
-                    paciente: paciente,
-                    consultas: consultas
-                });
-            }
-        );
-    });
-});
 router.get("/historial", (req, res) => {
 
     const sql = `
@@ -126,11 +51,10 @@ router.get("/historial", (req, res) => {
             p.nombre,
             p.apellido,
             p.dni,
-
-            MAX(c.fecha_consulta) AS ultima_actualizacion,
-
+            c.fecha_consulta AS ultima_consulta,
             d.nombre AS nombre_doctor,
-            d.apellido AS apellido_doctor
+            d.apellido AS apellido_doctor,
+            d.genero AS genero_doctor
 
         FROM Paciente p
 
@@ -143,18 +67,19 @@ router.get("/historial", (req, res) => {
         INNER JOIN Doctor d
             ON t.id_doctor = d.id_doctor
 
-        GROUP BY
-            p.id_paciente,
-            p.nombre,
-            p.apellido,
-            p.dni,
-            d.nombre,
-            d.apellido
+        WHERE c.fecha_consulta = (
+            SELECT MAX(c2.fecha_consulta)
+            FROM Consulta c2
+            INNER JOIN Turno t2
+                ON c2.id_turno = t2.id_turno
+            WHERE t2.id_paciente = p.id_paciente
+        )
 
-        ORDER BY ultima_actualizacion DESC
+        ORDER BY c.fecha_consulta DESC
     `;
 
     db.query(sql, (error, resultados) => {
+
         if (error) {
 
             console.error(
@@ -167,7 +92,6 @@ router.get("/historial", (req, res) => {
                     "Error al obtener las historias clínicas."
             });
         }
-
         res.json(resultados);
     });
 });
@@ -324,9 +248,7 @@ router.post("/registrar", (req, res) => {
     );
 });
 router.get("/paciente/:id_paciente", (req, res)=>{
-    const id_paciente =
-        req.params.id_paciente;
-
+    const id_paciente = req.params.id_paciente;
 
     const sql = `
         SELECT
@@ -335,18 +257,29 @@ router.get("/paciente/:id_paciente", (req, res)=>{
             c.motivo,
             c.diagnostico,
             c.observaciones,
+
             d.nombre AS nombre_doctor,
             d.apellido AS apellido_doctor,
-            d.especialidad
+            d.genero AS genero_doctor,
+            d.especialidad,
+
+            m.medicamento
+
         FROM Consulta c
+
         INNER JOIN Turno t
             ON c.id_turno = t.id_turno
+
         INNER JOIN Doctor d
             ON t.id_doctor = d.id_doctor
+
+        LEFT JOIN Medicamento m
+            ON c.id_consulta = m.id_consulta
+
         WHERE t.id_paciente = ?
+
         ORDER BY c.fecha_consulta DESC
     `;
-
 
     db.query(
         sql,
@@ -354,21 +287,173 @@ router.get("/paciente/:id_paciente", (req, res)=>{
         (error, resultados) => {
 
             if (error) {
-
                 console.error(
                     "Error al obtener historia clínica:",
                     error
                 );
-
                 return res.status(500).json({
                     mensaje:
                         "Error al obtener la historia clínica."
                 });
-
             }
             res.json(resultados);
         }
     );
+});
+// Obtener historia clínica de un paciente específico para un doctor
+router.get("/historial/paciente/:id_doctor/:id_paciente", (req, res) => {
 
-})
+    const id_doctor = req.params.id_doctor;
+    const id_paciente = req.params.id_paciente;
+
+    const sqlPaciente = `
+        SELECT
+            p.id_paciente,
+            p.nombre,
+            p.apellido,
+            p.dni
+        FROM Paciente p
+        INNER JOIN Turno t
+            ON p.id_paciente = t.id_paciente
+        WHERE p.id_paciente = ?
+        AND t.id_doctor = ?
+        LIMIT 1
+    `;
+
+    db.query(
+        sqlPaciente,
+        [id_paciente, id_doctor],
+        (error, pacientes) => {
+
+            if (error) {
+                console.error("Error al obtener paciente:", error);
+
+                return res.status(500).json({
+                    mensaje: "Error al obtener el paciente."
+                });
+            }
+
+            if (pacientes.length === 0) {
+                return res.status(404).json({
+                    mensaje: "No se encontró el paciente."
+                });
+            }
+
+            const paciente = pacientes[0];
+
+            const sqlConsultas = `
+                SELECT
+                    c.id_consulta,
+                    c.fecha_consulta,
+                    c.motivo,
+                    c.diagnostico,
+                    c.observaciones
+                FROM Consulta c
+                INNER JOIN Turno t
+                    ON c.id_turno = t.id_turno
+                WHERE t.id_paciente = ?
+                AND t.id_doctor = ?
+                ORDER BY c.fecha_consulta DESC
+            `;
+
+            db.query(
+                sqlConsultas,
+                [id_paciente, id_doctor],
+                (error, consultas) => {
+
+                    if (error) {
+                        console.error(
+                            "Error al obtener historial:",
+                            error
+                        );
+
+                        return res.status(500).json({
+                            mensaje:
+                                "Error al obtener la historia clínica."
+                        });
+                    }
+                    res.json({
+                        paciente: paciente,
+                        consultas: consultas
+                    });
+                }
+            );
+        }
+    );
+});
+// Obtener historia clínica de un paciente
+router.get("/historial/:id_doctor", (req, res) => {
+
+    const id_doctor = req.params.id_doctor;
+    const apellido = req.query.apellido || "";
+    const dni = req.query.dni || "";
+
+    let sql = `
+        SELECT DISTINCT
+            p.id_paciente,
+            p.nombre,
+            p.apellido,
+            p.dni
+        FROM Paciente p
+        INNER JOIN Turno t
+            ON p.id_paciente = t.id_paciente
+        WHERE t.id_doctor = ?
+    `;
+
+    const valores = [id_doctor];
+
+    if (apellido) {
+        sql += ` AND p.apellido LIKE ?`;
+        valores.push(`%${apellido}%`);
+    }
+
+    if (dni) {
+        sql += ` AND p.dni LIKE ?`;
+        valores.push(`%${dni}%`);
+    }
+    sql += ` ORDER BY p.apellido, p.nombre`;
+    db.query(sql, valores, (error, pacientes) => {
+
+        if (error) {
+            console.error("Error al buscar paciente:", error);
+            return res.status(500).json({
+                mensaje: "Error al buscar el paciente."
+            });
+        }
+        if (pacientes.length === 0) {
+            return res.status(404).json({
+                mensaje: "No se encontró ningún paciente."
+            });
+        }
+        const paciente = pacientes[0];
+        const sqlConsultas = `
+            SELECT
+                c.id_consulta,
+                c.fecha_consulta,
+                c.motivo,
+                c.diagnostico,
+                c.observaciones
+            FROM Consulta c
+            INNER JOIN Turno t
+                ON c.id_turno = t.id_turno
+            WHERE t.id_paciente = ?
+            AND t.id_doctor = ?
+            ORDER BY c.fecha_consulta DESC
+        `;
+        db.query(
+            sqlConsultas,
+            [paciente.id_paciente, id_doctor],
+            (error, consultas) => {
+                if (error) {
+                    console.error("Error al obtener historial:", error);
+                    return res.status(500).json({mensaje: "Error al obtener la historia clínica."});
+                }
+                res.json({
+                    paciente: paciente,
+                    consultas: consultas
+                });
+            }
+        );
+    });
+});
 module.exports = router;
